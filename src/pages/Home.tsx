@@ -180,18 +180,70 @@ export default function Home({ navigate }: HomeProps) {
               </div>
             ))}
           </div>
-          {/* Accreditation placeholders */}
-          <div className="border border-dashed border-[var(--color-border)] rounded-xl p-8">
-            <p className="text-[11px] font-semibold tracking-widest text-[var(--color-muted)] uppercase mb-6 text-center" style={{ fontFamily: "var(--font-display)" }}>Trusted. Registered. Recognised.</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {["ACCREDITATION 01 — REPLACE", "ACCREDITATION 02 — REPLACE", "AWARD 01 — REPLACE", "AWARD 02 — REPLACE"].map((label) => (
-                <div
-                  key={label}
-                  className="h-16 rounded-lg border-2 border-dashed border-[var(--color-border)] flex items-center justify-center bg-[var(--color-light-grey)]"
-                >
-                  <span className="text-[11px] text-[var(--color-muted)] text-center px-2 leading-tight">{label}</span>
-                </div>
-              ))}
+          {/* Accreditations */}
+        <div className="border border-[var(--color-border)] rounded-xl p-8">
+          <p
+            className="text-[11px] font-semibold tracking-widest text-[var(--color-muted)] uppercase mb-6 text-center"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Trusted. Registered. Recognised.
+          </p>
+        
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* IATA */}
+            <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
+              <img
+                src="/DandurguAir/images/logo/IATAlogo.png"
+                alt="IATA"
+                className="h-8 w-auto object-contain mb-2"
+              />
+              <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
+                IATA Accredited Agent
+              </span>
+            </div>
+        
+            {/* B2BHint */}
+            <div className="h-20 rounded-lg border border-[var(--color-border)] flex items-center justify-center bg-[var(--color-light-grey)] px-3">
+              <a
+                href="https://b2bhint.com/en/company/ng/dandurgu-air-travel-and-tours-ltd--RC-778913?ref=badge&utm_source=verified-badge&utm_medium=referral"
+                target="_blank"
+                rel="noopener"
+                title="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
+                style={{ display: "inline-block", lineHeight: 0 }}
+              >
+                <img
+                  src="https://b2bhint.com/api/badge/ng/dandurgu-air-travel-and-tours-ltd--RC-778913.svg"
+                  alt="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint · Registry health score"
+                  width="248"
+                  height="64"
+                  loading="lazy"
+                  style={{ border: 0, maxWidth: "100%" }}
+                />
+              </a>
+            </div>
+        
+            {/* NAHCON */}
+            <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
+              <img
+                src="/DandurguAir/images/logo/NAHCONlogo.png"
+                alt="NAHCON"
+                className="h-8 w-auto object-contain mb-2"
+              />
+              <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
+                NAHCON Member
+              </span>
+            </div>
+        
+            {/* NANTA */}
+            <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
+              <img
+                src="/DandurguAir/images/logo/NANTAlogo.png"
+                alt="NANTA"
+                className="h-8 w-auto object-contain mb-2"
+              />
+              <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
+                NANTA
+              </span>
             </div>
           </div>
         </div>
