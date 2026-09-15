@@ -1,0 +1,10 @@
+{
+  "description": "This platform offers seamless booking and management of air travel and tours for Dandurgu customers, enhancing travel experiences with user-friendly navigation.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
