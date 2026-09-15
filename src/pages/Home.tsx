@@ -194,61 +194,80 @@ export default function Home({ navigate }: HomeProps) {
           
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           
-              {/* IATA */}
-              <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex flex-col items-center justify-center px-3">
-                <img
-                  src={IATAlogo}
-                  alt="IATA"
-                  className="h-8 w-auto object-contain mb-2"
-                />
-                <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
-                  IATA Accredited Agent
-                </span>
-              </div>
+             {/* IATA */}
+          <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center px-4 gap-4">
+            <div className="w-16 shrink-0 flex items-center justify-center">
+              <img
+                src={IATAlogo}
+                alt="IATA"
+                className="h-12 w-auto object-contain"
+              />
+            </div>
           
-              {/* B2BHint */}
-              <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center justify-center overflow-hidden">
-                <a
-                  href="https://b2bhint.com/en/company/ng/dandurgu-air-travel-and-tours-ltd--RC-778913?ref=badge&utm_source=verified-badge&utm_medium=referral"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
-                  className="flex items-center justify-center overflow-hidden w-full h-full"
-                >
-                  <img
-                    src="https://b2bhint.com/api/badge/ng/dandurgu-air-travel-and-tours-ltd--RC-778913.svg"
-                    alt="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
-                    width="248"
-                    height="64"
-                    loading="lazy"
-                    className="w-[248px] h-[64px] object-contain scale-[1.08]"
-                  />
-                </a>
-              </div>
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold text-[var(--color-dark)] leading-tight">
+                IATA
+              </p>
+              <p className="text-[10px] text-[var(--color-muted)] leading-tight mt-1">
+                Accredited Agent
+              </p>
+            </div>
+          </div>
           
-              {/* NAHCON */}
-              <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex flex-col items-center justify-center px-3">
-                <img
-                  src={NAHCONlogo}
-                  alt="NAHCON"
-                  className="h-8 w-auto object-contain mb-2"
-                />
-                <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
-                  NAHCON Member
-                </span>
-              </div>
+          {/* B2BHint */}
+          <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center px-4 gap-4 overflow-hidden">
+            <div className="w-16 shrink-0 flex items-center justify-center">
+              <span className="text-[11px] font-semibold text-[var(--color-dark)]">
+                B2BHint
+              </span>
+            </div>
           
-              {/* NANTA */}
-              <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex flex-col items-center justify-center px-3">
-                <img
-                  src={NANTAlogo}
-                  alt="NANTA"
-                  className="h-8 w-auto object-contain mb-2"
-                />
-                <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
-                  NANTA Member
-                </span>
-              </div>
+            <div className="min-w-0">
+              <p className="text-[10px] text-[var(--color-muted)] leading-tight">
+                Verified Business
+              </p>
+            </div>
+          </div>
+          
+          {/* NAHCON */}
+          <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center px-4 gap-4">
+            <div className="w-16 shrink-0 flex items-center justify-center">
+              <img
+                src={NAHCONlogo}
+                alt="NAHCON"
+                className="h-10 w-auto object-contain"
+              />
+            </div>
+          
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold text-[var(--color-dark)] leading-tight">
+                NAHCON
+              </p>
+              <p className="text-[10px] text-[var(--color-muted)] leading-tight mt-1">
+                Member
+              </p>
+            </div>
+          </div>
+          
+          {/* NANTA */}
+          <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center px-4 gap-4">
+            <div className="w-16 shrink-0 flex items-center justify-center">
+              <img
+                src={NANTAlogo}
+                alt="NANTA"
+                className="h-20 w-auto object-contain"
+              />
+            </div>
+          
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold text-[var(--color-dark)] leading-tight">
+                NANTA
+              </p>
+              <p className="text-[10px] text-[var(--color-muted)] leading-tight mt-1">
+                Member
+              </p>
+            </div>
+          </div>
           
             </div>
           </div>
