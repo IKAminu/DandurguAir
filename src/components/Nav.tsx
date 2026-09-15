@@ -37,7 +37,7 @@ export default function Nav({ current, navigate }: NavProps) {
          <img
             src={logo}
             alt="Dandurgu Air Travel & Tours"
-            className="h-10 w-auto object-contain"
+            className="h-20 w-auto object-contain"
           />
           <span
             style={{ fontFamily: "var(--font-display)" }}
