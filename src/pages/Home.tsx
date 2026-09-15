@@ -190,48 +190,61 @@ export default function Home({ navigate }: HomeProps) {
             </p>
           
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="h-16 rounded-lg border border-[var(--color-border)] flex items-center justify-center bg-[var(--color-light-grey)] px-3">
+          
+              {/* IATA */}
+              <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
                 <img
-                  src="/DandurguAir/images/logo/IATAlogo.png"
+                  src="/images/logo/IATAlogo.png"
                   alt="IATA"
-                  className="max-h-10 max-w-full object-contain"
+                  className="h-8 w-auto object-contain mb-2"
                 />
+                <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
+                  IATA Accredited Agent
+                </span>
               </div>
           
-              <div className="h-16 rounded-lg border border-[var(--color-border)] flex items-center justify-center bg-[var(--color-light-grey)] px-3">
+              {/* B2BHint */}
+              <div className="h-20 rounded-lg border border-[var(--color-border)] flex items-center justify-center bg-[var(--color-light-grey)] px-3 overflow-hidden">
                 <a
                   href="https://b2bhint.com/en/company/ng/dandurgu-air-travel-and-tours-ltd--RC-778913?ref=badge&utm_source=verified-badge&utm_medium=referral"
                   target="_blank"
                   rel="noopener"
                   title="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
-                  style={{ display: "inline-block", lineHeight: 0 }}
+                  className="flex items-center justify-center w-full h-full"
                 >
                   <img
                     src="https://b2bhint.com/api/badge/ng/dandurgu-air-travel-and-tours-ltd--RC-778913.svg"
                     alt="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
-                    width="248"
-                    height="64"
+                    className="max-w-full max-h-full object-contain"
                     loading="lazy"
-                    style={{ border: 0, maxWidth: "100%" }}
                   />
                 </a>
               </div>
           
-              <div className="h-16 rounded-lg border border-[var(--color-border)] flex items-center justify-center bg-[var(--color-light-grey)] px-3">
+              {/* NAHCON */}
+              <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
                 <img
-                  src="/DandurguAir/images/logo/NAHCONlogo.png"
+                  src="/images/logo/NAHCONlogo.png"
                   alt="NAHCON"
-                  className="max-h-10 max-w-full object-contain"
+                  className="h-8 w-auto object-contain mb-2"
                 />
+                <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
+                  NAHCON Member
+                </span>
               </div>
           
-              <div className="h-16 rounded-lg border border-[var(--color-border)] flex items-center justify-center bg-[var(--color-light-grey)] px-3">
+              {/* NANTA */}
+              <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
                 <img
-                  src="/DandurguAir/images/logo/NANTAlogo.png"
+                  src="/images/logo/NANTAlogo.png"
                   alt="NANTA"
-                  className="max-h-10 max-w-full object-contain"
+                  className="h-8 w-auto object-contain mb-2"
                 />
+                <span className="text-[10px] text-[var(--color-muted)] text-center leading-tight">
+                  NANTA Member
+                </span>
               </div>
+          
             </div>
           </div>
         </div>
