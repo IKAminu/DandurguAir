@@ -87,7 +87,7 @@ export default function Home({ navigate }: HomeProps) {
               TRAVEL MADE EASIER.
             </h2>
             <p className="mt-4 text-[var(--color-muted)] text-[15.5px] max-w-xl leading-relaxed">
-              Whatever your travel needs, Dandurgu handles the details — so you can focus on the journey.
+              Whatever your travel needs, Dandurgu handles the details so you can focus on the journey.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
