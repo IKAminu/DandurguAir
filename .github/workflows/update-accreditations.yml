@@ -3,7 +3,7 @@ name: Update Home Accreditations
 on:
   push:
     paths:
-      - '.github/workflows/accreditation-trigger.txt'
+      - '.github/workflows/update-accreditations.yml'
     branches: [main]
 
 permissions:
