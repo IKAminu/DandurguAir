@@ -42,6 +42,7 @@ export default function Nav({ current, navigate }: NavProps) {
           <span
             style={{ fontFamily: "var(--font-display)" }}
             className="font-bold text-[var(--color-dark)] text-[15px] leading-tight hidden sm:block"
+            className="font-bold text-[var(--color-dark)] text-[15px] leading-tight hidden sm:block text-left"
           >
             Dandurgu<br />
             <span className="text-[11px] font-medium text-[var(--color-muted)] tracking-wide">AIR TRAVEL & TOURS</span>
