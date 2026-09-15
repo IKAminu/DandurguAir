@@ -1,3 +1,6 @@
+import logo from "../public/images/logo/logo.png";
+
+
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
 interface FooterProps {
@@ -17,9 +20,11 @@ export default function Footer({ navigate }: FooterProps) {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 rounded bg-[var(--color-brand-orange)] flex items-center justify-center">
-                <span className="text-white font-display font-bold text-sm">D</span>
-              </div>
+             <img
+                src="/DandurguAir/images/logo/logo.png"
+                alt="Dandurgu Air Travel & Tours"
+                className="h-20 w-auto object-contain"
+              />
               <span className="font-bold text-white text-[15px] leading-tight" style={{ fontFamily: "var(--font-display)" }}>
                 Dandurgu<br />
                 <span className="text-[11px] font-medium text-white/60 tracking-wide">AIR TRAVEL & TOURS</span>
