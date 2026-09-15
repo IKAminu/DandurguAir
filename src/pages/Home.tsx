@@ -1,4 +1,7 @@
 import { useState } from "react";
+import IATAlogo from "../public/images/logo/IATAlogo.png";
+import NAHCONlogo from "../public/images/logo/NAHCONlogo.png";
+import NANTAlogo from "../public/images/logo/NANTAlogo.png";
 
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
@@ -192,9 +195,9 @@ export default function Home({ navigate }: HomeProps) {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           
               {/* IATA */}
-              <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
+              <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex flex-col items-center justify-center px-3">
                 <img
-                  src="/images/logo/IATAlogo.png"
+                  src={IATAlogo}
                   alt="IATA"
                   className="h-8 w-auto object-contain mb-2"
                 />
@@ -204,27 +207,29 @@ export default function Home({ navigate }: HomeProps) {
               </div>
           
               {/* B2BHint */}
-              <div className="h-20 rounded-lg border border-[var(--color-border)] flex items-center justify-center bg-[var(--color-light-grey)] px-3 overflow-hidden">
+              <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center justify-center overflow-hidden">
                 <a
                   href="https://b2bhint.com/en/company/ng/dandurgu-air-travel-and-tours-ltd--RC-778913?ref=badge&utm_source=verified-badge&utm_medium=referral"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                   title="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
-                  className="flex items-center justify-center w-full h-full"
+                  className="flex items-center justify-center overflow-hidden w-full h-full"
                 >
                   <img
                     src="https://b2bhint.com/api/badge/ng/dandurgu-air-travel-and-tours-ltd--RC-778913.svg"
                     alt="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
-                    className="max-w-full max-h-full object-contain"
+                    width="248"
+                    height="64"
                     loading="lazy"
+                    className="w-[248px] h-[64px] object-contain scale-[1.08]"
                   />
                 </a>
               </div>
           
               {/* NAHCON */}
-              <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
+              <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex flex-col items-center justify-center px-3">
                 <img
-                  src="/images/logo/NAHCONlogo.png"
+                  src={NAHCONlogo}
                   alt="NAHCON"
                   className="h-8 w-auto object-contain mb-2"
                 />
@@ -234,9 +239,9 @@ export default function Home({ navigate }: HomeProps) {
               </div>
           
               {/* NANTA */}
-              <div className="h-20 rounded-lg border border-[var(--color-border)] flex flex-col items-center justify-center bg-[var(--color-light-grey)] px-3">
+              <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex flex-col items-center justify-center px-3">
                 <img
-                  src="/images/logo/NANTAlogo.png"
+                  src={NANTAlogo}
                   alt="NANTA"
                   className="h-8 w-auto object-contain mb-2"
                 />
