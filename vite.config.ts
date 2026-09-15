@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   const emitSourcemaps = mode === 'development'
 
   return {
-    base: process.env.FIGMA_PUBLIC_URL ? `${process.env.FIGMA_PUBLIC_URL}/` : '/',
+    base: process.env.FIGMA_PUBLIC_URL ? `${process.env.FIGMA_PUBLIC_URL}/` : '/DandurguAir/',
     build: {
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,
@@ -316,21 +316,7 @@ function figmaMakeKitPlugin(options: { storiesGlob: string | string[] }): Plugin
   const VIRTUAL_ID = 'virtual:figma-stories'
   const RESOLVED_ID = '\0' + VIRTUAL_ID
   const STORIES_MODULE = `export const stories = import.meta.glob(${JSON.stringify(storiesGlob)})`
-  const HTML_BOOTSTRAP = `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-<body>
-<div id="figma-make-kit-root"></div>
-<script type="module">
-  import { stories } from 'virtual:figma-stories'
-  window.__FIGMA__ = Object.assign(window.__FIGMA__ ?? {}, { stories })
-  window.dispatchEvent(new CustomEvent('figma.ready'))
-</script>
-</body>
-</html>`
+  const HTML_BOOTSTRAP = `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="UTF-8" />\n<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n</head>\n<body>\n<div id="figma-make-kit-root"></div>\n<script type="module">\n  import { stories } from 'virtual:figma-stories'\n  window.__FIGMA__ = Object.assign(window.__FIGMA__ ?? {}, { stories })\n  window.dispatchEvent(new CustomEvent('figma.ready'))\n</script>\n</body>\n</html>`
 
   return {
     name: 'figma-make-kit',
