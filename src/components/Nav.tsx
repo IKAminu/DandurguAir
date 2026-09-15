@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "../public/images/logo/logo.png";
 
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
@@ -33,9 +34,11 @@ export default function Nav({ current, navigate }: NavProps) {
           onClick={() => go("home")}
           className="flex items-center gap-2.5 shrink-0"
         >
-          <div className="w-8 h-8 rounded bg-[var(--color-brand-blue)] flex items-center justify-center">
-            <span className="text-white font-display font-bold text-sm tracking-tight">D</span>
-          </div>
+         <img
+            src={logo}
+            alt="Dandurgu Air Travel & Tours"
+            className="h-10 w-auto object-contain"
+          />
           <span
             style={{ fontFamily: "var(--font-display)" }}
             className="font-bold text-[var(--color-dark)] text-[15px] leading-tight hidden sm:block"
