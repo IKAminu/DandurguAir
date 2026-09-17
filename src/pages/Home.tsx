@@ -2,7 +2,7 @@ import { useState } from "react";
 import IATAlogo from "../public/images/logo/IATAlogo.png";
 import NAHCONlogo from "../public/images/logo/NAHCONlogo.png";
 import NANTAlogo from "../public/images/logo/NANTAlogo.png";
-import PilgrimHeroImage from "../public/images/pilgrim hero (1).jfif";
+import PilgrimHeroImage from "../public/images/pilgrim hero (2).jfif";
 
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
