@@ -44,7 +44,6 @@ export default function PrivacyPolicy({ navigate }: { navigate: (page: Page) => 
     <div className="bg-white">
       <div className="max-w-4xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div className="mb-12">
-          <button onClick={() => go("home")} className={`${linkClass} text-sm font-semibold mb-8 inline-block`}>← Back to Dandurgu</button>
           <p className="text-[11px] font-semibold tracking-widest uppercase text-[var(--color-brand-blue)] mb-3">Legal & Privacy</p>
           <h1 className="text-3xl md:text-5xl font-bold text-[var(--color-dark)] mb-4">Privacy Policy</h1>
           <p className="text-sm text-[var(--color-muted)]">Last updated: September 17, 2026</p>
@@ -152,7 +151,7 @@ export default function PrivacyPolicy({ navigate }: { navigate: (page: Page) => 
               <p><strong>Email:</strong> <a href="mailto:dandurguairtravels@gmail.com" className={linkClass}>dandurguairtravels@gmail.com</a></p>
               <p><strong>Phone:</strong> <a href="tel:+2349030878676" className={linkClass}>09030878676</a></p>
             </div>
-            <p>You may also contact us using the <a href="#contact-dpo" className={linkClass}>contact information provided in this section</a> on our website.</p>
+            <p>You may contact us through the contact form on this website.</p>
           </Section>
 
           <Section id="review-update-delete" title="12. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?">
