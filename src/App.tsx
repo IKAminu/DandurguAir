@@ -14,7 +14,7 @@ import Terms from "./pages/Terms";
 
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success" | "privacy" | "terms";
 
-const noLayout: Page[] = ["apply", "success"];
+const noLayout: Page[] = ["success"];
 const whatsappUrl = "https://wa.me/2349030878676";
 
 export default function App() {
