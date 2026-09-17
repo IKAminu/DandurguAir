@@ -7,11 +7,46 @@ interface UmrahProps {
 }
 
 const umrahFaqs = [
-  { q: "How do I start an Umrah application?", a: "[ANSWER — REPLACE WITH APPROVED DANDURGU POLICY]" },
-  { q: "What is the minimum deposit for Umrah?", a: "You can begin your Umrah journey with a minimum deposit of ₦500,000. [ADDITIONAL DETAILS — REPLACE WITH APPROVED DANDURGU POLICY]" },
-  { q: "What documents do I need for Umrah?", a: "[ANSWER — REPLACE WITH APPROVED DANDURGU POLICY]" },
-  { q: "Can I travel with family or a group?", a: "[ANSWER — REPLACE WITH APPROVED DANDURGU POLICY]" },
-  { q: "What services are included in an Umrah package?", a: "[ANSWER — REPLACE WITH APPROVED DANDURGU POLICY]" },
+  {
+    q: "How do I start an Umrah application?",
+    a: (
+      <>
+        Starting is simple. Click <strong>Start Your Journey</strong> and complete our short application form. We’ll ask a few questions about your travel plans and then collect the details we need to help arrange your Umrah journey. Once your application is submitted, a member of the Dandurgu team will contact you with the next steps.
+      </>
+    ),
+  },
+  {
+    q: "What is the minimum deposit for Umrah?",
+    a: (
+      <>
+        You can start your Umrah journey with a <strong>minimum deposit of ₦500,000</strong>. The remaining balance will be paid according to the payment arrangement agreed with Dandurgu.
+      </>
+    ),
+  },
+  {
+    q: "What documents do I need for Umrah?",
+    a: (
+      <>
+        The documents required depend on your travel arrangements and the current requirements for your destination. For Umrah, you will generally need a valid international passport and other documents required for your visa and travel arrangements. Our team will tell you exactly what is required for your particular journey.
+      </>
+    ),
+  },
+  {
+    q: "Can I travel with family or a group?",
+    a: (
+      <>
+        Yes. You can apply to travel alone, with family, or as part of a larger group. When completing your application, tell us how many people will be travelling so we can help arrange the appropriate travel and accommodation requirements.
+      </>
+    ),
+  },
+  {
+    q: "What services are included in an Umrah package?",
+    a: (
+      <>
+        The services included depend on the package you choose. An Umrah package may include arrangements such as flights, accommodation, transportation and other travel or pilgrimage-related services. Our team will explain exactly what is included and what is not included before you confirm your package.
+      </>
+    ),
+  },
 ];
 
 export default function Umrah({ navigate }: UmrahProps) {
@@ -330,6 +365,14 @@ export default function Umrah({ navigate }: UmrahProps) {
                 )}
               </div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <button
+              onClick={() => go("faq")}
+              className="text-[13.5px] font-semibold text-[var(--color-brand-blue)] hover:underline"
+            >
+              View all questions →
+            </button>
           </div>
         </div>
       </section>
