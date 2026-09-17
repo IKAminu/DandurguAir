@@ -21,7 +21,7 @@ export default function Footer({ navigate }: FooterProps) {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
              <img
-                src="/DandurguAir/images/logo/logo.png"
+                src={logo}
                 alt="Dandurgu Air Travel & Tours"
                 className="h-20 w-auto object-contain"
               />
