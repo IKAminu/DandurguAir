@@ -39,6 +39,13 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       {showLayout && <Nav current={page} navigate={navigate} />}
       <main className="flex-1">
+        {page === "apply" && (
+          <style>{`
+            main > div.min-h-screen.bg-white > div.border-b > div.max-w-3xl > button:first-child {
+              display: none;
+            }
+          `}</style>
+        )}
         {page === "home" && <Home navigate={navigate} />}
         {page === "umrah" && <Umrah navigate={navigate} />}
         {page === "services" && <Services navigate={navigate} />}
