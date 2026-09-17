@@ -13,7 +13,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success" | "privacy";
 
-const noLayout: Page[] = ["apply", "success", "privacy"];
+const noLayout: Page[] = ["apply", "success"];
 const whatsappUrl = "https://wa.me/2349030878676";
 
 export default function App() {
