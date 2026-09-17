@@ -10,8 +10,9 @@ import Contact from "./pages/Contact";
 import Application from "./pages/Application";
 import Success from "./pages/Success";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 
-type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success" | "privacy";
+type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success" | "privacy" | "terms";
 
 const noLayout: Page[] = ["apply", "success"];
 const whatsappUrl = "https://wa.me/2349030878676";
@@ -47,6 +48,7 @@ export default function App() {
         {page === "apply" && <Application navigate={navigate} />}
         {page === "success" && <Success navigate={navigate} />}
         {page === "privacy" && <PrivacyPolicy navigate={navigate} />}
+        {page === "terms" && <Terms navigate={navigate} />}
       </main>
       {showLayout && <Footer navigate={navigate} />}
     </div>
