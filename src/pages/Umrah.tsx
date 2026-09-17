@@ -16,11 +16,116 @@ const umrahFaqs = [
 
 export default function Umrah({ navigate }: UmrahProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openPackage, setOpenPackage] = useState<number | null>(null);
 
   const go = (page: Page) => {
     navigate(page);
     window.scrollTo(0, 0);
   };
+
+  const packageItems = [
+    {
+      title: "FLIGHTS",
+      icon: "✈",
+      content: (
+        <>
+          <p>Dandurgu arranges international flights for Umrah and Hajj travellers, with <strong>EgyptAir and Saudia</strong> among the airlines we commonly use.</p>
+          <p>Depending on your departure city, travel dates, availability and package, flights may be arranged to <strong>Jeddah or Madinah</strong>, with suitable connections where required.</p>
+          <p>Our team considers factors such as:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Departure and return dates</li>
+            <li>Departure city</li>
+            <li>Flight availability</li>
+            <li>Baggage allowance</li>
+            <li>Number of travellers</li>
+            <li>Preferred travel class</li>
+            <li>Airline and itinerary</li>
+          </ul>
+          <p>Flight arrangements are confirmed according to the package and itinerary selected for your journey. Other airlines may also be available depending on availability and travel requirements.</p>
+        </>
+      ),
+    },
+    {
+      title: "ACCOMMODATION",
+      icon: "🏨",
+      content: (
+        <>
+          <p>Dandurgu offers accommodation options across different package levels, ranging from <strong>3-star to 6-star hotels</strong>, depending on the package selected, location, availability and season.</p>
+          <p>Our Umrah accommodation may include hotels in <strong>Makkah and Madinah</strong>, with options such as:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Al Kiswah Towers</li>
+            <li>Abraj Al Tayseer</li>
+            <li>Snood Al Hoda</li>
+            <li>Diary Al Saad</li>
+            <li>Ponciana</li>
+            <li>Other approved hotels depending on package availability</li>
+          </ul>
+          <p>For Hajj packages, accommodation and camp arrangements are different from regular Umrah hotel arrangements and may include accommodation and services associated with <strong>Mina, Arafat and Muzdalifah</strong>, according to the approved package and season.</p>
+          <p>Your specific hotel and accommodation arrangements will be confirmed before your package is finalized.</p>
+        </>
+      ),
+    },
+    {
+      title: "TRANSPORT",
+      icon: "🚌",
+      content: (
+        <>
+          <p>Dandurgu can arrange transportation as part of applicable Umrah and Hajj packages.</p>
+          <p>Depending on the package, transportation may cover journeys between:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Airport</li>
+            <li>Makkah</li>
+            <li>Madinah</li>
+            <li>Accommodation</li>
+            <li>Religious sites and other required locations</li>
+          </ul>
+          <p>For Hajj, transportation arrangements may also cover movement between the Holy Sites, including <strong>Mina, Arafat and Muzdalifah</strong>, according to the applicable Hajj arrangements.</p>
+          <p>The exact transportation services, vehicle type, routes and schedule depend on the package and current operational arrangements.</p>
+        </>
+      ),
+    },
+    {
+      title: "VISA / TRAVEL DOCUMENTATION",
+      icon: "📋",
+      content: (
+        <>
+          <p>Dandurgu assists customers with the travel documentation required for their journey.</p>
+          <p>For Umrah, this may include assistance with the documentation and visa process applicable to the traveller and the current Saudi requirements.</p>
+          <p>Customers will generally need:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>A valid international passport</li>
+            <li>Required passport information and copies</li>
+            <li>Passport photographs where applicable</li>
+            <li>Other documents required for the relevant visa or travel arrangement</li>
+          </ul>
+          <p>Our team will review your information and tell you what documents are required for your particular journey.</p>
+          <p>Visa issuance and entry into Saudi Arabia remain subject to the applicable Saudi regulations and approval by the relevant authorities.</p>
+        </>
+      ),
+    },
+    {
+      title: "OTHER SERVICES",
+      icon: "⭐",
+      content: (
+        <>
+          <p>Depending on the package selected, Dandurgu may also assist with other aspects of your journey, including:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Travel planning and itinerary coordination</li>
+            <li>Flight booking and ticketing</li>
+            <li>Hotel and accommodation arrangements</li>
+            <li>Airport and inter-city transportation</li>
+            <li>Visa and travel documentation assistance</li>
+            <li>Group and family travel arrangements</li>
+            <li>Customer support before and during travel</li>
+            <li>Guidance on travel requirements and preparations</li>
+            <li>Other services required for the selected package</li>
+          </ul>
+          <p>The exact services included will be clearly explained by our team before you confirm your package.</p>
+          <p><strong>Package inclusions vary by package, travel period and availability. Always confirm the specific inclusions, exclusions and conditions of your selected package with Dandurgu before making payment.</strong></p>
+        </>
+      ),
+    },
+  ];
 
   return (
     <div>
@@ -131,24 +236,34 @@ export default function Umrah({ navigate }: UmrahProps) {
               YOUR PACKAGE.
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { title: "FLIGHTS", icon: "✈" },
-              { title: "ACCOMMODATION", icon: "🏨" },
-              { title: "TRANSPORT", icon: "🚌" },
-              { title: "VISA / TRAVEL DOCUMENTATION", icon: "📋" },
-              { title: "OTHER SERVICES", icon: "⭐" },
-            ].map((item) => (
-              <div key={item.title} className="p-6 rounded-xl bg-white border border-[var(--color-border)]">
-                <div className="text-2xl mb-4">{item.icon}</div>
-                <h4 className="font-bold text-[13px] tracking-wide text-[var(--color-dark)] mb-3" style={{ fontFamily: "var(--font-display)" }}>
-                  {item.title}
-                </h4>
-                <p className="text-[12px] text-[var(--color-brand-orange)] italic border border-dashed border-[var(--color-border)] rounded px-3 py-2 bg-[var(--color-light-grey)]">
-                  [PACKAGE DETAILS — REPLACE WITH APPROVED DANDURGU PACKAGE INFORMATION]
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
+            {packageItems.map((item, i) => {
+              const isOpen = openPackage === i;
+
+              return (
+                <div key={item.title} className="p-6 rounded-xl bg-white border border-[var(--color-border)]">
+                  <div className="text-2xl mb-4">{item.icon}</div>
+                  <h4 className="font-bold text-[13px] tracking-wide text-[var(--color-dark)] mb-3" style={{ fontFamily: "var(--font-display)" }}>
+                    {item.title}
+                  </h4>
+                  <div className={`relative text-[12px] text-[var(--color-muted)] leading-relaxed ${isOpen ? "" : "max-h-24 overflow-hidden"}`}>
+                    <div className={isOpen ? "space-y-3" : "space-y-3"}>
+                      {item.content}
+                    </div>
+                    {!isOpen && (
+                      <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setOpenPackage(isOpen ? null : i)}
+                    className="mt-3 text-[12px] font-semibold text-[var(--color-brand-blue)] hover:text-[var(--color-brand-blue-dark)] transition-colors"
+                  >
+                    {isOpen ? "Read less" : "Read more"}
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
