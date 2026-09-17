@@ -2,6 +2,7 @@ import { useState } from "react";
 import IATAlogo from "../public/images/logo/IATAlogo.png";
 import NAHCONlogo from "../public/images/logo/NAHCONlogo.png";
 import NANTAlogo from "../public/images/logo/NANTAlogo.png";
+import PilgrimHeroImage from "../public/images/pilgrim hero (1).jfif";
 
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
@@ -58,7 +59,7 @@ export default function Home({ navigate }: HomeProps) {
       <section className="relative overflow-hidden bg-[var(--color-brand-blue-deeper)] min-h-[88vh] flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1600&h=900&fit=crop&auto=format"
+            src={PilgrimHeroImage}
             alt="Grand mosque illuminated at night, reflected in still water"
             className="w-full h-full object-cover opacity-30"
           />
