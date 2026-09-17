@@ -1,3 +1,7 @@
+import HajjImage from "../public/images/Picture (2).jfif";
+import FlightsImage from "../public/images/Picture (1).jfif";
+import ToursImage from "../public/images/picture (3).jpg";
+
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
 interface ServicesProps {
@@ -20,7 +24,7 @@ const services = [
     points: ["Official Hajj package arrangements", "Accommodation and transport", "Documentation support", "Group and individual arrangements", "Experienced guidance throughout"],
     cta: "ENQUIRE ABOUT HAJJ",
     page: "apply" as Page,
-    image: "/DandurguAir/images/Picture%20%282%29.jfif",
+    image: HajjImage,
   },
   {
     title: "FLIGHTS",
@@ -29,7 +33,7 @@ const services = [
     points: ["Domestic Nigerian routes", "International destinations", "Group booking arrangements", "Family travel coordination", "Business and economy class"],
     cta: "ENQUIRE ABOUT FLIGHTS",
     page: "apply" as Page,
-    image: "/DandurguAir/images/Picture%20%281%29.jfif",
+    image: FlightsImage,
   },
   {
     title: "TOURS & TRAVEL",
@@ -38,7 +42,7 @@ const services = [
     points: ["International tour packages", "Holiday travel arrangements", "Family travel planning", "Group tours", "Travel documentation support"],
     cta: "ENQUIRE ABOUT TOURS",
     page: "apply" as Page,
-    image: "/DandurguAir/images/Picture%20%283%29.jpg",
+    image: ToursImage,
   },
 ];
 
