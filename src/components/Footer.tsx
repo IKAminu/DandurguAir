@@ -93,19 +93,26 @@ export default function Footer({ navigate }: FooterProps) {
             <ul className="space-y-3 text-[14px] text-white/70">
               <li className="flex items-start gap-2">
                 <span className="text-white/30 mt-0.5">📞</span>
-                <span className="text-[var(--color-brand-orange)/80] italic text-[12px]">[REPLACE WITH ACTUAL PHONE NUMBER]</span>
+                <span className="text-[var(--color-brand-orange)/80] italic text-[12px]"> 0903-087-8676</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-white/30 mt-0.5">💬</span>
-                <span className="text-[var(--color-brand-orange)/80] italic text-[12px]">[REPLACE WITH ACTUAL WHATSAPP NUMBER]</span>
+                <span className="text-white/30 mt-0.5">📞</span>
+                <span className="text-[var(--color-brand-orange)/80] italic text-[12px]"> 0803-786-6633</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-white/30 mt-0.5">✉</span>
-                <span className="text-[var(--color-brand-orange)/80] italic text-[12px]">[REPLACE WITH ACTUAL EMAIL]</span>
+                <span className="text-[var(--color-brand-orange)/80] italic text-[12px]"> dandurguairtravels@gmail.com</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-white/30 mt-0.5">📍</span>
-                <span className="text-[var(--color-brand-orange)/80] italic text-[12px]">[REPLACE WITH ACTUAL OFFICE ADDRESS]</span>
+                <span className="text-[var(--color-brand-orange)/80] italic text-[12px]"><a
+                    href="https://maps.google.com/maps?cid=2650410679867385595"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Satatima Plaza, Miller Road, Bompai Rd, Nassarawa, Kano, Nigeria
+                  </a>
+                </span>
               </li>
             </ul>
           </div>
