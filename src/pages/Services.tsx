@@ -20,6 +20,7 @@ const services = [
     points: ["Official Hajj package arrangements", "Accommodation and transport", "Documentation support", "Group and individual arrangements", "Experienced guidance throughout"],
     cta: "ENQUIRE ABOUT HAJJ",
     page: "apply" as Page,
+    image: "/DandurguAir/images/Picture%20%282%29.jfif",
   },
   {
     title: "FLIGHTS",
@@ -28,6 +29,7 @@ const services = [
     points: ["Domestic Nigerian routes", "International destinations", "Group booking arrangements", "Family travel coordination", "Business and economy class"],
     cta: "ENQUIRE ABOUT FLIGHTS",
     page: "apply" as Page,
+    image: "/DandurguAir/images/Picture%20%281%29.jfif",
   },
   {
     title: "TOURS & TRAVEL",
@@ -36,6 +38,7 @@ const services = [
     points: ["International tour packages", "Holiday travel arrangements", "Family travel planning", "Group tours", "Travel documentation support"],
     cta: "ENQUIRE ABOUT TOURS",
     page: "apply" as Page,
+    image: "/DandurguAir/images/Picture%20%283%29.jpg",
   },
 ];
 
@@ -91,10 +94,18 @@ export default function Services({ navigate }: ServicesProps) {
                   {svc.cta}
                 </button>
               </div>
-              <div className={`rounded-2xl bg-[var(--color-light-grey)] border border-[var(--color-border)] aspect-[4/3] flex items-center justify-center ${i % 2 === 1 ? "md:[direction:ltr]" : ""}`}>
-                <p className="text-[12px] text-[var(--color-muted)] italic text-center px-8">
-                  [IMAGE PLACEHOLDER, REPLACE WITH DANDURGU {svc.title} IMAGE]
-                </p>
+              <div className={`rounded-2xl bg-[var(--color-light-grey)] border border-[var(--color-border)] aspect-[4/3] flex items-center justify-center overflow-hidden ${i % 2 === 1 ? "md:[direction:ltr]" : ""}`}>
+                {svc.image ? (
+                  <img
+                    src={svc.image}
+                    alt={`${svc.title} service`}
+                    className={`w-full h-full object-cover ${svc.title === "TOURS & TRAVEL" ? "object-bottom" : ""}`}
+                  />
+                ) : (
+                  <p className="text-[12px] text-[var(--color-muted)] italic text-center px-8">
+                    [IMAGE PLACEHOLDER, REPLACE WITH DANDURGU {svc.title} IMAGE]
+                  </p>
+                )}
               </div>
             </div>
           ))}
