@@ -10,10 +10,86 @@ interface HomeProps {
 }
 
 const faqs = [
-  { q: "How do I start an Umrah application?", a: "[ANSWER — REPLACE WITH APPROVED DANDURGU POLICY]" },
-  { q: "What is the minimum deposit for Umrah?", a: "You can begin your Umrah journey with a minimum deposit of ₦500,000. [ADDITIONAL DETAILS — REPLACE WITH APPROVED DANDURGU POLICY]" },
-  { q: "What documents do I need to travel?", a: "[ANSWER — REPLACE WITH APPROVED DANDURGU POLICY]" },
-  { q: "How quickly can I travel after applying?", a: "[ANSWER — REPLACE WITH APPROVED DANDURGU POLICY]" },
+  {
+    q: "How do I start an Umrah application?",
+    a: (
+      <>
+        Starting is simple. Click <strong>Start Your Journey</strong> and complete our short application form. We’ll ask a few questions about your travel plans and then collect the details we need to help arrange your Umrah journey. Once your application is submitted, a member of the Dandurgu team will contact you with the next steps.
+      </>
+    ),
+  },
+  {
+    q: "What is the minimum deposit for Umrah?",
+    a: (
+      <>
+        You can start your Umrah journey with a <strong>minimum deposit of ₦500,000</strong>. The remaining balance will be paid according to the payment arrangement agreed with Dandurgu.
+      </>
+    ),
+  },
+  {
+    q: "What documents do I need to travel?",
+    a: (
+      <>
+        The documents required depend on your travel arrangements and the current requirements for your destination. For Umrah, you will generally need a valid international passport and other documents required for your visa and travel arrangements. Our team will tell you exactly what is required for your particular journey.
+      </>
+    ),
+  },
+  {
+    q: "How quickly can I travel after applying?",
+    a: (
+      <>
+        Travel time depends on your preferred travel date, availability, documentation and the arrangements required for your journey. In some cases, travel can be arranged within a short period. Our team will confirm the earliest suitable travel option after reviewing your application.
+      </>
+    ),
+  },
+  {
+    q: "Can I travel with family or a group?",
+    a: (
+      <>
+        Yes. You can apply to travel alone, with family, or as part of a larger group. When completing your application, tell us how many people will be travelling so we can help arrange the appropriate travel and accommodation requirements.
+      </>
+    ),
+  },
+  {
+    q: "Can Dandurgu arrange my flights?",
+    a: (
+      <>
+        Yes. Dandurgu provides flight booking and travel arrangement services for domestic and international journeys. If you are travelling for Umrah, we can also assist with arranging the flights required for your journey.
+      </>
+    ),
+  },
+  {
+    q: "What happens after I submit my application?",
+    a: (
+      <>
+        Once you submit your application, our team will review the information you provided. We’ll contact you to discuss your travel requirements, available arrangements, documentation and the next steps toward confirming your journey.
+      </>
+    ),
+  },
+  {
+    q: "How do I make payment?",
+    a: (
+      <>
+        Payment instructions will be provided by the Dandurgu team after your application has been reviewed and your travel arrangements have been discussed. We will provide the appropriate payment details and explain the amount required at each stage.
+      </>
+    ),
+  },
+  {
+    q: "Can I change my travel date?",
+    a: (
+      <>
+        Travel dates may be changed depending on your booking, airline rules, package arrangements, availability and any applicable charges. Contact the Dandurgu team as soon as possible if you need to change your travel date, and we’ll advise you on the available options.
+      </>
+    ),
+  },
+  {
+    q: "What services are included in an Umrah package?",
+    a: (
+      <>
+        The services included depend on the package you choose. An Umrah package may include arrangements such as flights, accommodation, transportation and other travel or pilgrimage-related services. Our team will explain exactly what is included and what is not included before you confirm your package.
+      </>
+    ),
+  },
 ];
 
 export default function Home({ navigate }: HomeProps) {
