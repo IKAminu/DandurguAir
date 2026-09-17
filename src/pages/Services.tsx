@@ -8,7 +8,7 @@ const services = [
   {
     title: "UMRAH",
     icon: "🕌",
-    desc: "We arrange every aspect of your Umrah journey — flights, accommodation in Makkah and Madinah, visa documentation, and ground transport. Our team has years of experience arranging Umrah travel and understands what matters most to our customers.",
+    desc: "We arrange every aspect of your Umrah journey, including flights, accommodation in Makkah and Madinah, visa documentation, and ground transport. Our team has years of experience arranging Umrah travel and understands what matters most to our customers.",
     points: ["Flight arrangements from Nigerian cities", "Hotel accommodation near the Haram", "Saudi visa documentation support", "Ground transport arrangements", "Flexible payment plans available"],
     cta: "EXPLORE UMRAH",
     page: "umrah" as Page,
@@ -93,7 +93,7 @@ export default function Services({ navigate }: ServicesProps) {
               </div>
               <div className={`rounded-2xl bg-[var(--color-light-grey)] border border-[var(--color-border)] aspect-[4/3] flex items-center justify-center ${i % 2 === 1 ? "md:[direction:ltr]" : ""}`}>
                 <p className="text-[12px] text-[var(--color-muted)] italic text-center px-8">
-                  [IMAGE PLACEHOLDER — REPLACE WITH DANDURGU {svc.title} IMAGE]
+                  [IMAGE PLACEHOLDER, REPLACE WITH DANDURGU {svc.title} IMAGE]
                 </p>
               </div>
             </div>
