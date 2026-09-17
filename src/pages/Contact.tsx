@@ -35,8 +35,8 @@ export default function Contact({ navigate }: ContactProps) {
       </section>
 
       <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid md:grid-cols-5 gap-14">
-          {/* Contact info */}
+        <div className="max-w-7xl mx-auto px-5 md:px-8 grid md:grid-cols-5 gap-14 items-start">
+          {/* Contact info and map */}
           <div className="md:col-span-2">
             <h2 className="font-bold text-[20px] text-[var(--color-dark)] mb-8 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
               CONTACT DANDURGU
@@ -46,7 +46,9 @@ export default function Contact({ navigate }: ContactProps) {
             <div className="mb-8">
               <div className="text-[11px] font-semibold tracking-widest text-[var(--color-muted)] uppercase mb-3" style={{ fontFamily: "var(--font-display)" }}>WhatsApp (Preferred)</div>
               <a
-                href="https://wa.me/[REPLACE]"
+                href="https://wa.me/2349030878676"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] hover:border-green-500 transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0">
@@ -56,20 +58,20 @@ export default function Contact({ navigate }: ContactProps) {
                 </div>
                 <div>
                   <div className="font-semibold text-[14px] text-[var(--color-dark)]">WhatsApp Us</div>
-                  <div className="text-[12px] text-[var(--color-brand-orange)] italic">[REPLACE WITH ACTUAL WHATSAPP NUMBER]</div>
+                  <div className="text-[12px] text-[var(--color-dark)]">0903-087-8676</div>
                 </div>
               </a>
             </div>
 
             <div className="space-y-6">
               {[
-                { label: "Phone", val: "[REPLACE WITH ACTUAL PHONE NUMBER]", icon: "📞" },
-                { label: "Email", val: "[REPLACE WITH ACTUAL EMAIL]", icon: "✉" },
-                { label: "Office Address", val: "[REPLACE WITH ACTUAL OFFICE ADDRESS]", icon: "📍" },
+                { label: "Phone", val: "0903-087-8676 / 0803-786-6633", icon: "📞" },
+                { label: "Email", val: "dandurguairtravels@gmail.com", icon: "✉" },
+                { label: "Office Address", val: "Satatima Plaza, Miller Road, Bompai Rd, Nassarawa, Kano, Nigeria", icon: "📍" },
               ].map((item) => (
                 <div key={item.label}>
                   <div className="text-[11px] font-semibold tracking-widest text-[var(--color-muted)] uppercase mb-2" style={{ fontFamily: "var(--font-display)" }}>{item.label}</div>
-                  <p className="text-[13px] text-[var(--color-brand-orange)] italic">{item.val}</p>
+                  <p className="text-[13px] text-[var(--color-dark)]">{item.val}</p>
                 </div>
               ))}
             </div>
@@ -84,10 +86,22 @@ export default function Contact({ navigate }: ContactProps) {
                 START YOUR JOURNEY
               </button>
             </div>
+
+            {/* Office map */}
+            <div className="mt-10">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1460.127650313464!2d8.553794522623365!3d12.010704044353282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11ae816d349bcde7%3A0x24c826788a65a6fb!2sDandurgu%20Air%20Travel%20And%20Tours%20Ltd!5e0!3m2!1sen!2sng!4v1789662847511!5m2!1sen!2sng"
+                title="Dandurgu Air Travel & Tours Ltd office location"
+                className="w-full aspect-[4/3] rounded-xl border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
           </div>
 
           {/* Contact form */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 md:sticky md:top-24 self-start">
             <h2 className="font-bold text-[20px] text-[var(--color-dark)] mb-8 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
               SEND AN ENQUIRY
             </h2>
