@@ -214,35 +214,24 @@ export default function Home({ navigate }: HomeProps) {
             </div>
           </div>
           
-          {/* B2BHint */}
-          <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center px-4 gap-4 overflow-hidden">
-            <div className="w-16 shrink-0 flex items-center justify-center overflow-hidden">
-              <a
-                href="https://b2bhint.com/en/company/ng/dandurgu-air-travel-and-tours-ltd--RC-778913?ref=badge&utm_source=verified-badge&utm_medium=referral"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
-                className="flex items-center justify-center"
-              >
-                <img
-                  src="https://b2bhint.com/api/badge/ng/dandurgu-air-travel-and-tours-ltd--RC-778913.svg"
-                  alt="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint · Registry health score"
-                  width="248"
-                  height="64"
-                  loading="lazy"
-                  className="w-[100px] h-auto max-w-none object-contain"
-                />
-              </a>
-            </div>
-          
-            <div className="min-w-0">
-              <p className="text-[11px] font-semibold text-[var(--color-dark)] leading-tight">
-                B2BHint
-              </p>
-              <p className="text-[10px] text-[var(--color-muted)] leading-tight mt-1">
-                Verified Business
-              </p>
-            </div>
+         {/* B2BHint */}
+          <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center justify-center overflow-hidden">
+            <a
+              href="https://b2bhint.com/en/company/ng/dandurgu-air-travel-and-tours-ltd--RC-778913?ref=badge&utm_source=verified-badge&utm_medium=referral"
+              target="_blank"
+              rel="noopener"
+              title="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint"
+              style={{ display: "inline-block", lineHeight: 0 }}
+            >
+              <img
+                src="https://b2bhint.com/api/badge/ng/dandurgu-air-travel-and-tours-ltd--RC-778913.svg"
+                alt="DANDURGU AIR TRAVEL AND TOURS LTD — Verified by B2BHint · Registry health score"
+                width="248"
+                height="64"
+                loading="lazy"
+                style={{ border: 0, maxWidth: "100%" }}
+              />
+            </a>
           </div>
           
           {/* NAHCON */}
