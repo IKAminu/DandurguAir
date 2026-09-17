@@ -42,54 +42,6 @@ const faqs = [
       </>
     ),
   },
-  {
-    q: "Can I travel with family or a group?",
-    a: (
-      <>
-        Yes. You can apply to travel alone, with family, or as part of a larger group. When completing your application, tell us how many people will be travelling so we can help arrange the appropriate travel and accommodation requirements.
-      </>
-    ),
-  },
-  {
-    q: "Can Dandurgu arrange my flights?",
-    a: (
-      <>
-        Yes. Dandurgu provides flight booking and travel arrangement services for domestic and international journeys. If you are travelling for Umrah, we can also assist with arranging the flights required for your journey.
-      </>
-    ),
-  },
-  {
-    q: "What happens after I submit my application?",
-    a: (
-      <>
-        Once you submit your application, our team will review the information you provided. We’ll contact you to discuss your travel requirements, available arrangements, documentation and the next steps toward confirming your journey.
-      </>
-    ),
-  },
-  {
-    q: "How do I make payment?",
-    a: (
-      <>
-        Payment instructions will be provided by the Dandurgu team after your application has been reviewed and your travel arrangements have been discussed. We will provide the appropriate payment details and explain the amount required at each stage.
-      </>
-    ),
-  },
-  {
-    q: "Can I change my travel date?",
-    a: (
-      <>
-        Travel dates may be changed depending on your booking, airline rules, package arrangements, availability and any applicable charges. Contact the Dandurgu team as soon as possible if you need to change your travel date, and we’ll advise you on the available options.
-      </>
-    ),
-  },
-  {
-    q: "What services are included in an Umrah package?",
-    a: (
-      <>
-        The services included depend on the package you choose. An Umrah package may include arrangements such as flights, accommodation, transportation and other travel or pilgrimage-related services. Our team will explain exactly what is included and what is not included before you confirm your package.
-      </>
-    ),
-  },
 ];
 
 export default function Home({ navigate }: HomeProps) {
