@@ -203,7 +203,7 @@ export default function Home({ navigate }: HomeProps) {
             ].map((item) => (
               <div key={item.stat} className="p-6 bg-white rounded-xl border border-[var(--color-border)]">
                 <div
-                  className="text-3xl md:text-4xl font-bold text-[var(--color-brand-blue)] mb-2 leading-none"
+                  className={`${item.stat === "Accredited" ? "text-xl sm:text-2xl md:text-4xl" : "text-3xl md:text-4xl"} font-bold text-[var(--color-brand-blue)] mb-2 leading-none`}
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {item.stat}
