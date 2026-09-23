@@ -46,6 +46,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Stack accreditation badges vertically so their labels have room to breathe. */
+.grid.grid-cols-2.md\\:grid-cols-4.gap-4 {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
