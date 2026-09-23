@@ -221,7 +221,7 @@ export default function Home({ navigate }: HomeProps) {
               Trusted. Registered. Recognised.
             </p>
           
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           
              {/* IATA */}
           <div className="h-20 rounded-lg border border-[var(--color-border)] bg-[var(--color-light-grey)] flex items-center px-4 gap-4">
