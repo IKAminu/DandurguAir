@@ -61,8 +61,8 @@ export default function About({ navigate }: AboutProps) {
               { stat: "15+", label: "Years of experience" },
               { stat: "Accredited", label: "& registered" },
             ].map((item) => (
-              <div key={item.stat} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>{item.stat}</div>
+              <div key={item.stat} className="text-center min-w-0">
+                <div className={`font-bold text-white mb-2 leading-tight ${item.stat === "Accredited" ? "text-2xl sm:text-3xl md:text-5xl break-words" : "text-4xl md:text-5xl"}`} style={{ fontFamily: "var(--font-display)" }}>{item.stat}</div>
                 <div className="text-white/60 text-[13.5px]">{item.label}</div>
               </div>
             ))}
