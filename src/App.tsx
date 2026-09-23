@@ -12,40 +12,95 @@ import Success from "./pages/Success";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 
-type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success" | "privacy" | "terms";
+export type Page =
+  | "home"
+  | "umrah"
+  | "services"
+  | "about"
+  | "faq"
+  | "contact"
+  | "apply"
+  | "success"
+  | "privacy"
+  | "terms";
 
 const noLayout: Page[] = ["success"];
 const whatsappUrl = "https://wa.me/2349030878676";
 
-export default function App() {
-  const [page, setPage] = useState<Page>("home");
+const pathForPage: Record<Page, string> = {
+  home: "/",
+  umrah: "/umrah",
+  services: "/services",
+  about: "/about",
+  faq: "/faq",
+  contact: "/contact",
+  apply: "/apply",
+  success: "/success",
+  privacy: "/privacy",
+  terms: "/terms",
+};
 
-  const navigate = (p: Page) => setPage(p);
-  const showLayout = !noLayout.includes(page);
+const pageForPath: Record<string, Page> = {
+  "/": "home",
+  "/home": "home",
+  "/umrah": "umrah",
+  "/services": "services",
+  "/about": "about",
+  "/faq": "faq",
+  "/contact": "contact",
+  "/apply": "apply",
+  "/form": "apply",
+  "/application": "apply",
+  "/success": "success",
+  "/privacy": "privacy",
+  "/terms": "terms",
+};
+
+function getPageFromLocation(): Page {
+  const path = window.location.pathname.replace(/\/+$/, "").toLowerCase() || "/";
+  return pageForPath[path] ?? "home";
+}
+
+export default function App() {
+  const [page, setPage] = useState<Page>(getPageFromLocation);
+
+  const navigate = (nextPage: Page) => {
+    const nextPath = pathForPage[nextPage];
+    if (window.location.pathname !== nextPath) {
+      window.history.pushState({ page: nextPage }, "", nextPath);
+    }
+    setPage(nextPage);
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
-    const normalizeWhatsAppLinks = () => {
-      document.querySelectorAll<HTMLAnchorElement>('a[href="https://wa.me/[REPLACE]"]').forEach((link) => {
-        link.href = whatsappUrl;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-      });
+    const handlePopState = () => {
+      setPage(getPageFromLocation());
+      window.scrollTo(0, 0);
     };
 
+    const normalizeWhatsAppLinks = () => {
+      document
+        .querySelectorAll<HTMLAnchorElement>('a[href="https://wa.me/[REPLACE]"]')
+        .forEach((link) => {
+          link.href = whatsappUrl;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        });
+    };
+
+    window.addEventListener("popstate", handlePopState);
     normalizeWhatsAppLinks();
+
+    return () => window.removeEventListener("popstate", handlePopState);
   }, [page]);
+
+  const showLayout = !noLayout.includes(page);
 
   return (
     <div className="min-h-screen flex flex-col">
       {showLayout && <Nav current={page} navigate={navigate} />}
       <main className="flex-1">
-        {page === "apply" && (
-          <style>{`
-            main > div.min-h-screen.bg-white > div.border-b > div.max-w-3xl > button:first-child {
-              display: none;
-            }
-          `}</style>
-        )}
         {page === "home" && <Home navigate={navigate} />}
         {page === "umrah" && <Umrah navigate={navigate} />}
         {page === "services" && <Services navigate={navigate} />}
