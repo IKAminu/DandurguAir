@@ -264,7 +264,10 @@ export default function Application({ navigate }: ApplicationProps) {
               onChange={(e) => setDetails({ ...details, departure: e.target.value })}
               className="w-full px-4 py-3.5 rounded-xl border border-[var(--color-border)] bg-white text-[15px] text-[var(--color-dark)] focus:outline-none focus:border-[var(--color-brand-blue)] transition-colors"
             >
-              <option value="">[DEPARTURE CITY OPTIONS — REPLACE WITH DANDURGU'S ACTUAL DEPARTURE CITIES]</option>
+             <option value="">Select departure city</option>
+              <option value="Kano">Kano</option>
+              <option value="Abuja">Abuja</option>
+              <option value="Custom">Custom - Let's arrange the details</option>
             </select>
           </div>
           <InputField label="When would you prefer to travel?" type="date" value={details.travelDate} onChange={(v) => setDetails({ ...details, travelDate: v })} />
