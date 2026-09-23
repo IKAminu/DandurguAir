@@ -38,6 +38,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
+/* Keep the trust-stat values, especially "Accredited", inside their cards on mobile. */
+@media (max-width: 639px) {
+  .grid.grid-cols-2.gap-6.mb-14 > div > div:first-child {
+    font-size: 1.5rem;
+    overflow-wrap: anywhere;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
