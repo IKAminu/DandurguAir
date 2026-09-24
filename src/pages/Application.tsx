@@ -1,25 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (
-        container: HTMLElement,
-        options: {
-          sitekey: string;
-          theme?: "auto" | "light" | "dark";
-          callback?: (token: string) => void;
-          "error-callback"?: () => void;
-          "expired-callback"?: () => void;
-        },
-      ) => string;
-      reset: (widgetId?: string) => void;
-      remove?: (widgetId: string) => void;
-    };
-  }
-}
-
-const TURNSTILE_SITE_KEY = "0x4AAAAAAFCSB3KOg6bNct5E";
+import { useLayoutEffect, useRef, useState } from "react";
 
 type Page =
   | "home"
@@ -181,74 +160,12 @@ export default function Application({ navigate }: ApplicationProps) {
   const [passportFile, setPassportFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
-
-  const turnstileContainerRef = useRef<HTMLDivElement>(null);
-  const turnstileWidgetIdRef = useRef<string | null>(null);
-
   const submissionFormRef = useRef<HTMLFormElement>(null);
   const passportInputRef = useRef<HTMLInputElement>(null);
 
   // Reference to the question area. Used to scroll to the question
   // after each step or sub-question change.
   const questionAreaRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (step !== 5 || !turnstileContainerRef.current) {
-      return;
-    }
-
-    setTurnstileToken("");
-
-    const container = turnstileContainerRef.current;
-    let attempts = 0;
-    let retryTimer: number | undefined;
-
-    const renderTurnstile = () => {
-      if (!window.turnstile) {
-        attempts += 1;
-        if (attempts < 50) {
-          retryTimer = window.setTimeout(renderTurnstile, 100);
-        }
-        return;
-      }
-
-      if (turnstileWidgetIdRef.current) {
-        try {
-          window.turnstile.remove?.(turnstileWidgetIdRef.current);
-        } catch {
-          // Ignore cleanup errors during navigation.
-        }
-        turnstileWidgetIdRef.current = null;
-      }
-
-      container.innerHTML = "";
-      turnstileWidgetIdRef.current = window.turnstile.render(container, {
-        sitekey: TURNSTILE_SITE_KEY,
-        theme: "auto",
-        callback: (token) => setTurnstileToken(token),
-        "error-callback": () => setTurnstileToken(""),
-        "expired-callback": () => setTurnstileToken(""),
-      });
-    };
-
-    renderTurnstile();
-
-    return () => {
-      if (retryTimer) {
-        window.clearTimeout(retryTimer);
-      }
-
-      if (turnstileWidgetIdRef.current && window.turnstile) {
-        try {
-          window.turnstile.remove?.(turnstileWidgetIdRef.current);
-        } catch {
-          // Ignore cleanup errors during navigation.
-        }
-        turnstileWidgetIdRef.current = null;
-      }
-    };
-  }, [step]);
 
   useLayoutEffect(() => {
     window.scrollTo({
@@ -380,10 +297,6 @@ export default function Application({ navigate }: ApplicationProps) {
     if (fileError) {
       setStep(4);
       setSubQ(0);
-      return;
-    }
-
-    if (!turnstileToken) {
       return;
     }
 
@@ -1191,22 +1104,10 @@ export default function Application({ navigate }: ApplicationProps) {
           </p>
         </div>
 
-        <div className="mb-5">
-          <div
-            ref={turnstileContainerRef}
-            className="min-h-[65px] flex justify-center sm:justify-start"
-          />
-          {!turnstileToken && (
-            <p className="mt-2 text-[12px] text-[var(--color-muted)]">
-              Complete the security check above to enable submission.
-            </p>
-          )}
-        </div>
-
         <button
           type="button"
           onClick={submitApplication}
-          disabled={isSubmitting || !turnstileToken}
+          disabled={isSubmitting}
           className="w-full py-4 rounded-xl bg-[var(--color-brand-orange)] hover:bg-[var(--color-brand-orange-hover)] text-white font-bold text-[16px] tracking-wide transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           style={{ fontFamily: "var(--font-display)" }}
         >
@@ -1254,8 +1155,6 @@ export default function Application({ navigate }: ApplicationProps) {
           }
         />
         <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="cf-turnstile-response" value={turnstileToken} />
         <input
           type="hidden"
           name="_next"
