@@ -41,7 +41,6 @@ export default function Nav({ current, navigate }: NavProps) {
           />
           <span
             style={{ fontFamily: "var(--font-display)" }}
-            className="font-bold text-[var(--color-dark)] text-[15px] leading-tight hidden sm:block"
             className="font-bold text-[var(--color-dark)] text-[15px] leading-tight hidden sm:block text-left"
           >
             Dandurgu<br />
@@ -69,7 +68,7 @@ export default function Nav({ current, navigate }: NavProps) {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://wa.me/[REPLACE]"
+            href="https://wa.me/2349030878676"
             className="flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-muted)] hover:text-[var(--color-dark)] transition-colors"
           >
             <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 24 24">
@@ -137,7 +136,7 @@ export default function Nav({ current, navigate }: NavProps) {
               START YOUR JOURNEY
             </button>
             <a
-              href="https://wa.me/[REPLACE]"
+              href="https://wa.me/2349030878676"
               className="mt-2 w-full flex items-center justify-center gap-2 py-2.5 rounded border border-[var(--color-border)] text-[14px] font-medium text-[var(--color-dark)]"
             >
               <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 24 24">
