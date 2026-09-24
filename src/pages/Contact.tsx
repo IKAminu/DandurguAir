@@ -15,9 +15,46 @@ export default function Contact({ navigate }: ContactProps) {
     window.scrollTo(0, 0);
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/dandurguairtravels@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: new FormData(e.currentTarget),
+        },
+      );
+
+      const contentType = response.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        throw new Error("FormSubmit returned a non-JSON response.");
+      }
+
+      const result = await response.json();
+      const succeeded =
+        response.ok &&
+        (result.success === true || result.success === "true");
+
+      if (!succeeded) {
+        throw new Error(
+          typeof result.message === "string"
+            ? result.message
+            : "FormSubmit rejected the enquiry.",
+        );
+      }
+
+      setSent(true);
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      window.alert(
+        "Your enquiry could not be sent. Please try again or contact us on WhatsApp.",
+      );
+    }
   };
 
   return (
@@ -112,12 +149,18 @@ export default function Contact({ navigate }: ContactProps) {
                 <p className="text-[var(--color-muted)] text-[14px]">Our team will get back to you shortly.</p>
               </div>
             ) : (
-              <form onSubmit={submit} className="space-y-5">
+              <form
+                onSubmit={submit}
+                className="space-y-5"
+              >
+                <input type="hidden" name="_subject" value="New Dandurgu Website Enquiry" />
+                <input type="hidden" name="_captcha" value="true" />
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-[12px] font-semibold text-[var(--color-dark)] mb-2" style={{ fontFamily: "var(--font-display)" }}>Full Name</label>
                     <input
                       type="text"
+                      name="name"
                       required
                       placeholder="Your name"
                       value={form.name}
@@ -129,6 +172,7 @@ export default function Contact({ navigate }: ContactProps) {
                     <label className="block text-[12px] font-semibold text-[var(--color-dark)] mb-2" style={{ fontFamily: "var(--font-display)" }}>Phone / WhatsApp</label>
                     <input
                       type="tel"
+                      name="phone"
                       placeholder="Your phone number"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -149,6 +193,7 @@ export default function Contact({ navigate }: ContactProps) {
                 <div>
                   <label className="block text-[12px] font-semibold text-[var(--color-dark)] mb-2" style={{ fontFamily: "var(--font-display)" }}>Message</label>
                   <textarea
+                    name="message"
                     required
                     rows={5}
                     placeholder="Tell us about your travel plans..."
