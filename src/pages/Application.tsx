@@ -169,15 +169,8 @@ export default function Application({ navigate }: ApplicationProps) {
   const questionAreaRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const questionArea = questionAreaRef.current;
-
-    if (!questionArea) return;
-
-    const questionTop =
-      questionArea.getBoundingClientRect().top + window.scrollY;
-
     window.scrollTo({
-      top: Math.max(0, questionTop - 24),
+      top: 0,
       behavior: "auto",
     });
   }, [step, subQ]);
@@ -1232,28 +1225,6 @@ export default function Application({ navigate }: ApplicationProps) {
       {/* Application header */}
       <div className="border-b border-[var(--color-border)] bg-white">
         <div className="max-w-3xl mx-auto px-5 md:px-8 py-8 md:py-10">
-          {/* Logo */}
-          <button
-            onClick={() => go("home")}
-            className="flex items-center gap-2 mb-8"
-          >
-            <div className="w-7 h-7 rounded bg-[var(--color-brand-blue)] flex items-center justify-center">
-              <span
-                className="text-white font-bold text-xs"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                D
-              </span>
-            </div>
-
-            <span
-              className="font-bold text-[13px] text-[var(--color-dark)]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Dandurgu Air Travel &amp; Tours
-            </span>
-          </button>
-
           <h2
             className="text-xl md:text-2xl font-bold text-[var(--color-dark)] mb-1.5 tracking-tight"
             style={{ fontFamily: "var(--font-display)" }}
