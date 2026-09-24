@@ -289,7 +289,7 @@ export default function Application({ navigate }: ApplicationProps) {
     return true;
   };
 
-  const submitApplication = () => {
+  const submitApplication = async () => {
     if (!validateApplication()) {
       return;
     }
@@ -310,7 +310,49 @@ export default function Application({ navigate }: ApplicationProps) {
     }
 
     setIsSubmitting(true);
-    form.requestSubmit();
+    setFileError("");
+
+    try {
+      const formData = new FormData(form);
+
+      const response = await fetch(
+        "https://formsubmit.co/ajax/dandurguairtravels@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        },
+      );
+
+      const contentType = response.headers.get("content-type") || "";
+
+      if (!contentType.includes("application/json")) {
+        throw new Error("FormSubmit returned a non-JSON response.");
+      }
+
+      const result = await response.json();
+      const succeeded =
+        response.ok &&
+        (result.success === true || result.success === "true");
+
+      if (!succeeded) {
+        throw new Error(
+          typeof result.message === "string"
+            ? result.message
+            : "FormSubmit rejected the application.",
+        );
+      }
+
+      go("success");
+    } catch (error) {
+      console.error("Application submission failed:", error);
+      setFileError(
+        "Your application could not be submitted. Please complete the CAPTCHA if prompted and try again.",
+      );
+      setIsSubmitting(false);
+    }
   };
 
   const set = (key: string, val: string | number) => {
@@ -1140,7 +1182,7 @@ export default function Application({ navigate }: ApplicationProps) {
     <>
       <form
         ref={submissionFormRef}
-        action="https://formsubmit.co/dandurguairtravels@gmail.com"
+        action="https://formsubmit.co/ajax/dandurguairtravels@gmail.com"
         method="POST"
         encType="multipart/form-data"
         className="sr-only"
@@ -1155,11 +1197,6 @@ export default function Application({ navigate }: ApplicationProps) {
           }
         />
         <input type="hidden" name="_template" value="table" />
-        <input
-          type="hidden"
-          name="_next"
-          value="https://dandurgu.l.cd/success"
-        />
         <input
           type="hidden"
           name="_url"
