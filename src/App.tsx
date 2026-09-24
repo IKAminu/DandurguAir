@@ -25,8 +25,6 @@ export type Page =
   | "terms";
 
 const noLayout: Page[] = ["success"];
-const whatsappUrl = "https://wa.me/2349030878676";
-
 const pathForPage: Record<Page, string> = {
   home: "/",
   umrah: "/umrah",
@@ -79,19 +77,7 @@ export default function App() {
       window.scrollTo(0, 0);
     };
 
-    const normalizeWhatsAppLinks = () => {
-      document
-        .querySelectorAll<HTMLAnchorElement>('a[href="https://wa.me/[REPLACE]"]')
-        .forEach((link) => {
-          link.href = whatsappUrl;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-        });
-    };
-
     window.addEventListener("popstate", handlePopState);
-    normalizeWhatsAppLinks();
-
     return () => window.removeEventListener("popstate", handlePopState);
   }, [page]);
 
