@@ -89,7 +89,7 @@ export default function Home({ navigate }: HomeProps) {
                 START YOUR JOURNEY
               </button>
               <a
-                href="https://wa.me/[REPLACE]"
+                href="https://wa.me/2349030878676"
                 className="px-6 py-3.5 rounded border border-white/30 hover:border-white/60 text-white font-medium text-[14px] flex items-center justify-center gap-2 transition-colors"
               >
                 <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24">
@@ -504,7 +504,7 @@ export default function Home({ navigate }: HomeProps) {
               START YOUR JOURNEY
             </button>
             <a
-              href="https://wa.me/[REPLACE]"
+              href="https://wa.me/2349030878676"
               className="px-8 py-4 rounded border border-white/30 hover:border-white/60 text-white font-medium text-[15px] flex items-center justify-center gap-2 transition-colors"
             >
               <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24">
