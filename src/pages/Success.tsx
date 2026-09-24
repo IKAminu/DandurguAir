@@ -43,7 +43,7 @@ export default function Success({ navigate }: SuccessProps) {
 
         <div className="flex flex-col gap-3 max-w-sm mx-auto">
           <a
-            href="https://wa.me/[REPLACE]"
+            href="https://wa.me/2349030878676"
             className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold text-[14.5px] transition-colors"
             style={{ fontFamily: "var(--font-display)" }}
           >
