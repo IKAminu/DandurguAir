@@ -1,3 +1,4 @@
+import UmrahImage from "../public/images/umrah (3).jpg";
 import HajjImage from "../public/images/Picture (2).jfif";
 import FlightsImage from "../public/images/Picture (1).jfif";
 import ToursImage from "../public/images/picture (3).jpg";
@@ -16,6 +17,7 @@ const services = [
     points: ["Flight arrangements from Nigerian cities", "Hotel accommodation near the Haram", "Saudi visa documentation support", "Ground transport arrangements", "Flexible payment plans available"],
     cta: "EXPLORE UMRAH",
     page: "umrah" as Page,
+    image: UmrahImage,
   },
   {
     title: "HAJJ",
