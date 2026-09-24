@@ -194,7 +194,7 @@ export default function Umrah({ navigate }: UmrahProps) {
               START YOUR UMRAH APPLICATION
             </button>
             <a
-              href="https://wa.me/[REPLACE]"
+              href="https://wa.me/2349030878676"
               className="px-7 py-4 rounded border border-white/30 hover:border-white/60 text-white font-medium text-[14.5px] flex items-center justify-center gap-2 transition-colors"
             >
               WHATSAPP US
