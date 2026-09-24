@@ -154,7 +154,7 @@ export default function FAQ({ navigate }: FAQProps) {
           <p className="text-[var(--color-muted)] text-[15px] mb-8">Our team is available to help. Reach us by WhatsApp or through our contact page.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://wa.me/[REPLACE]"
+              href="https://wa.me/2349030878676"
               className="px-6 py-3.5 rounded bg-green-600 hover:bg-green-700 text-white font-semibold text-[14px] flex items-center justify-center gap-2 transition-colors"
               style={{ fontFamily: "var(--font-display)" }}
             >
