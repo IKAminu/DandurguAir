@@ -88,7 +88,8 @@ function Question({
       {!subtext && <div className="mb-8" />}
 
       <div className="space-y-3">{children}</div>
-    </div>
+      </div>
+    </>
   );
 }
 
@@ -157,7 +158,12 @@ export default function Application({ navigate }: ApplicationProps) {
     hearAboutOther: "",
   });
 
-  const [fileState, setFileState] = useState<"empty" | "uploaded">("empty");
+  const [passportFile, setPassportFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const submissionFormRef = useRef<HTMLFormElement>(null);
+  const passportInputRef = useRef<HTMLInputElement>(null);
 
   // Reference to the question area. Used to scroll to the question
   // after each step or sub-question change.
@@ -180,6 +186,81 @@ export default function Application({ navigate }: ApplicationProps) {
   const go = (page: Page) => {
     navigate(page);
     window.scrollTo(0, 0);
+  };
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes < 1024 * 1024) {
+      return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+    }
+
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  };
+
+  const handlePassportFileChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const file = event.target.files?.[0] ?? null;
+
+    if (!file) {
+      setPassportFile(null);
+      return;
+    }
+
+    const allowedTypes = [
+      "application/pdf",
+      "image/jpeg",
+      "image/png",
+    ];
+
+    const allowedExtensions = [".pdf", ".jpg", ".jpeg", ".png"];
+    const lowerName = file.name.toLowerCase();
+    const hasAllowedExtension = allowedExtensions.some((extension) =>
+      lowerName.endsWith(extension),
+    );
+
+    if (!allowedTypes.includes(file.type) && !hasAllowedExtension) {
+      setPassportFile(null);
+      setFileError("Please upload a PDF, JPG or PNG file.");
+      event.target.value = "";
+      return;
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      setPassportFile(null);
+      setFileError("The passport copy must be 10 MB or smaller.");
+      event.target.value = "";
+      return;
+    }
+
+    setPassportFile(file);
+    setFileError("");
+  };
+
+  const removePassportFile = () => {
+    setPassportFile(null);
+    setFileError("");
+
+    if (passportInputRef.current) {
+      passportInputRef.current.value = "";
+    }
+  };
+
+  const submitApplication = () => {
+    if (!details.name || !details.phone || !details.state) {
+      setStep(3);
+      setSubQ(0);
+      return;
+    }
+
+    const form = submissionFormRef.current;
+
+    if (!form) {
+      setFileError("The application form could not be submitted. Please try again.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    form.submit();
   };
 
   const set = (key: string, val: string | number) => {
@@ -583,7 +664,92 @@ export default function Application({ navigate }: ApplicationProps) {
                 Upload Passport Copy
               </label>
 
-              {fileState === "empty" ? (
+              <>
+                {!passportFile ? (
+                  <button
+                    type="button"
+                    onClick={() => passportInputRef.current?.click()}
+                    className="w-full border-2 border-dashed border-[var(--color-border)] rounded-2xl p-10 text-center hover:border-[var(--color-brand-blue)] hover:bg-blue-50/30 transition-all group"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-light-grey)] flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                      <svg
+                        className="w-6 h-6 text-[var(--color-muted)]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                        />
+                      </svg>
+                    </div>
+
+                    <p
+                      className="font-semibold text-[15px] text-[var(--color-dark)] mb-1"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      TAP TO UPLOAD PASSPORT COPY
+                    </p>
+
+                    <p className="text-[13px] text-[var(--color-muted)]">
+                      PDF, JPG or PNG
+                    </p>
+
+                    <p className="text-[12px] text-[var(--color-muted)] mt-1">
+                      Make sure all passport details are clearly visible.
+                    </p>
+                  </button>
+                ) : (
+                  <div className="border-2 border-[var(--color-success)] rounded-2xl p-5 bg-green-50 flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0">
+                      <svg
+                        className="w-5 h-5 text-green-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-[14px] text-[var(--color-dark)] truncate">
+                        {passportFile.name}
+                      </p>
+
+                      <p className="text-[12px] text-[var(--color-muted)]">
+                        {formatFileSize(passportFile.size)} · Ready to submit
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={removePassportFile}
+                      className="text-[12.5px] font-medium text-[var(--color-muted)] hover:text-red-600 transition-colors"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
+
+                {fileError && (
+                  <p className="text-[12.5px] text-red-600 mt-2">
+                    {fileError}
+                  </p>
+                )}
+              </>
+            </div>
+          </div>
+        </div>
+      );
                 <button
                   onClick={() => setFileState("uploaded")}
                   className="w-full border-2 border-dashed border-[var(--color-border)] rounded-2xl p-10 text-center hover:border-[var(--color-brand-blue)] hover:bg-blue-50/30 transition-all group"
@@ -654,11 +820,7 @@ export default function Application({ navigate }: ApplicationProps) {
                     Remove
                   </button>
                 </div>
-              )}
-            </div>
-          </div>
-        </div>
-      );
+
 
     if (subQ === 1)
       return (
@@ -855,7 +1017,9 @@ export default function Application({ navigate }: ApplicationProps) {
           { label: "Place of Issue", val: details.passportIssue || "—" },
           {
             label: "Passport Copy",
-            val: fileState === "uploaded" ? "Uploaded" : "Not uploaded",
+            val: passportFile
+              ? `Uploaded — ${passportFile.name}`
+              : "Not uploaded",
           },
           { label: "Saudi Visa", val: details.saudiVisa || "—" },
           ...(details.saudiVisa === "YES"
@@ -962,11 +1126,13 @@ export default function Application({ navigate }: ApplicationProps) {
         </div>
 
         <button
-          onClick={() => go("success")}
-          className="w-full py-4 rounded-xl bg-[var(--color-brand-orange)] hover:bg-[var(--color-brand-orange-hover)] text-white font-bold text-[16px] tracking-wide transition-colors"
+          type="button"
+          onClick={submitApplication}
+          disabled={isSubmitting}
+          className="w-full py-4 rounded-xl bg-[var(--color-brand-orange)] hover:bg-[var(--color-brand-orange-hover)] text-white font-bold text-[16px] tracking-wide transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          SUBMIT APPLICATION
+          {isSubmitting ? "SUBMITTING..." : "SUBMIT APPLICATION"}
         </button>
       </div>
     );
@@ -992,7 +1158,79 @@ export default function Application({ navigate }: ApplicationProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <form
+        ref={submissionFormRef}
+        action="https://formsubmit.co/dandurguairtravels@gmail.com"
+        method="POST"
+        encType="multipart/form-data"
+        className="sr-only"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value={
+            details.name
+              ? `New Dandurgu Application - ${details.name}`
+              : "New Dandurgu Application"
+          }
+        />
+        <input type="hidden" name="_template" value="table" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://dandurgu.l.cd/success"
+        />
+        <input
+          type="hidden"
+          name="_url"
+          value="https://dandurgu.l.cd/apply"
+        />
+        <input type="hidden" name="_replyto" value={details.email} />
+        <input
+          type="hidden"
+          name="consent"
+          value="Applicant consented to Dandurgu's Privacy Policy and processing of personal information for the requested travel services."
+        />
+
+        <input type="hidden" name="nationality" value={answers.nigerian === "yes" ? "Nigerian National" : answers.nigerian === "no" ? "Non-Nigerian" : ""} />
+        <input type="hidden" name="passport_status" value={answers.passport === "yes" ? "Active international passport" : answers.passport === "no" ? "No passport" : ""} />
+        <input type="hidden" name="travel_timing" value={String(answers.timing ?? "")} />
+        <input type="hidden" name="payment_plan" value={String(answers.payment ?? "")} />
+        <input type="hidden" name="group_size" value={String(answers.groupSize ?? "")} />
+        <input type="hidden" name="service" value={String(answers.service ?? "")} />
+
+        <input type="hidden" name="full_name" value={details.name} />
+        <input type="hidden" name="date_of_birth" value={details.dob} />
+        <input type="hidden" name="gender" value={details.gender} />
+        <input type="hidden" name="phone_whatsapp" value={details.phone} />
+        <input type="hidden" name="email" value={details.email} />
+        <input type="hidden" name="state" value={details.state} />
+        <input type="hidden" name="city" value={details.city} />
+
+        <input type="hidden" name="departure" value={details.departure} />
+        <input type="hidden" name="preferred_travel_date" value={details.travelDate} />
+        <input type="hidden" name="preferred_package" value={details.package} />
+
+        <input type="hidden" name="passport_expiry" value={details.passportExpiry} />
+        <input type="hidden" name="passport_place_of_issue" value={details.passportIssue} />
+        <input type="hidden" name="saudi_visa" value={details.saudiVisa} />
+        <input type="hidden" name="visa_type" value={details.visaType} />
+        <input type="hidden" name="special_assistance" value={details.specialAssistance} />
+        <input type="hidden" name="assistance_details" value={details.assistanceDetails} />
+        <input type="hidden" name="how_did_you_hear" value={details.hearAbout} />
+        <input type="hidden" name="how_did_you_hear_other" value={details.hearAboutOther} />
+
+        <input
+          ref={passportInputRef}
+          type="file"
+          name="passport"
+          accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+          onChange={handlePassportFileChange}
+        />
+      </form>
+
+      <div className="min-h-screen bg-white">
       {/* Application header */}
       <div className="border-b border-[var(--color-border)] bg-white">
         <div className="max-w-3xl mx-auto px-5 md:px-8 py-8 md:py-10">
