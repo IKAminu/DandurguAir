@@ -62,7 +62,7 @@ export default function Terms({ navigate }: { navigate: (page: Page) => void }) 
 
         <div className="prose-none">
           <Section id="agreement" title="AGREEMENT TO OUR LEGAL TERMS">
-            <p>These Terms and Conditions of Service ("<strong>Legal Terms</strong>") constitute a legally binding agreement between you ("<strong>you</strong>" or "<strong>your</strong>") and <strong>Dandurgu Air Travel and Tours Ltd</strong> ("<strong>Dandurgu</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") concerning your access to and use of our website, <strong>https://dandurgu.cc.cd</strong>, and any related pages, forms, applications, communications, and services that refer or link to these Legal Terms (collectively, the "<strong>Services</strong>").</p>
+            <p>These Terms and Conditions of Service ("<strong>Legal Terms</strong>") constitute a legally binding agreement between you ("<strong>you</strong>" or "<strong>your</strong>") and <strong>Dandurgu Air Travel and Tours Ltd</strong> ("<strong>Dandurgu</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") concerning your access to and use of our website, <strong>https://dandurgu.l.cd</strong>, and any related pages, forms, applications, communications, and services that refer or link to these Legal Terms (collectively, the "<strong>Services</strong>").</p>
             <p>You can contact us at:</p>
             <div className="border-l-2 border-[var(--color-brand-blue)] pl-5 space-y-1">
               <p><strong>Dandurgu Air Travel and Tours Ltd</strong></p>
@@ -189,7 +189,7 @@ export default function Terms({ navigate }: { navigate: (page: Page) => void }) 
               <p><strong>Address:</strong> Satatima Plaza, Miller Road, Bompai Rd, Nassarawa, Kano, Nigeria</p>
               <p><strong>Phone:</strong> <a href="tel:+2349030878676" className={linkClass}>0903-087-8676</a> / <a href="tel:+2348037866633" className={linkClass}>0803-786-6633</a></p>
               <p><strong>Email:</strong> <a href="mailto:dandurguairtravels@gmail.com" className={linkClass}>dandurguairtravels@gmail.com</a></p>
-              <p><strong>Website:</strong> <a href="https://dandurgu.cc.cd" target="_blank" rel="noopener noreferrer" className={linkClass}>dandurgu.cc.cd</a></p>
+              <p><strong>Website:</strong> <a href="https://dandurgu.l.cd" target="_blank" rel="noopener noreferrer" className={linkClass}>dandurgu.l.cd</a></p>
             </div>
           </Section>
 
