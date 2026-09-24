@@ -101,18 +101,11 @@ export default function Services({ navigate }: ServicesProps) {
                 </button>
               </div>
               <div className={`rounded-2xl bg-[var(--color-light-grey)] border border-[var(--color-border)] aspect-[4/3] flex items-center justify-center overflow-hidden ${i % 2 === 1 ? "md:[direction:ltr]" : ""}`}>
-                {svc.image ? (
-                  <img
-                    src={svc.image}
-                    alt={`${svc.title} service`}
-                    className={`w-full h-full object-cover ${svc.title === "TOURS & TRAVEL" ? "object-bottom" : ""}`}
-                  />
-                ) : (
-                  <p className="text-[12px] text-[var(--color-muted)] italic text-center px-8">
-                    [IMAGE PLACEHOLDER, REPLACE WITH DANDURGU {svc.title} IMAGE]
-                  </p>
-                )}
-              </div>
+                <img
+                  src={svc.image}
+                  alt={`${svc.title} service`}
+                  className={`w-full h-full object-cover ${svc.title === "TOURS & TRAVEL" ? "object-bottom" : ""}`}
+                />             </div>
             </div>
           ))}
         </div>
