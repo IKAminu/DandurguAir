@@ -88,8 +88,7 @@ function Question({
       {!subtext && <div className="mb-8" />}
 
       <div className="space-y-3">{children}</div>
-      </div>
-    </>
+    </div>
   );
 }
 
