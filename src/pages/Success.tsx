@@ -1,3 +1,5 @@
+import logo from "../public/images/logo/logo.png";
+
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
 interface SuccessProps {
@@ -14,10 +16,11 @@ export default function Success({ navigate }: SuccessProps) {
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-5 py-20">
       {/* Logo */}
       <button onClick={() => go("home")} className="flex items-center gap-2 mb-16">
-        <div className="w-7 h-7 rounded bg-[var(--color-brand-blue)] flex items-center justify-center">
-          <span className="text-white font-bold text-xs" style={{ fontFamily: "var(--font-display)" }}>D</span>
-        </div>
-        <span className="font-bold text-[13px] text-[var(--color-dark)]" style={{ fontFamily: "var(--font-display)" }}>Dandurgu Air Travel & Tours</span>
+        <img
+          src={logo}
+          alt="Dandurgu Air Travel & Tours"
+          className="h-20 w-auto object-contain"
+        />
       </button>
 
       <div className="max-w-lg w-full text-center">
