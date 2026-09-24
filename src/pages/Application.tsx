@@ -244,9 +244,66 @@ export default function Application({ navigate }: ApplicationProps) {
     }
   };
 
-  const submitApplication = () => {
-    if (!details.name || !details.phone || !details.state) {
+  const validateApplication = () => {
+    if (!answers.nigerian) {
+      setStep(1);
+      setSubQ(0);
+      return false;
+    }
+
+    if (!answers.passport) {
+      setStep(1);
+      setSubQ(1);
+      return false;
+    }
+
+    if (!answers.timing) {
+      setStep(1);
+      setSubQ(2);
+      return false;
+    }
+
+    if (!answers.payment) {
+      setStep(2);
+      setSubQ(0);
+      return false;
+    }
+
+    if (!answers.groupSize) {
+      setStep(2);
+      setSubQ(1);
+      return false;
+    }
+
+    if (!answers.service) {
+      setStep(2);
+      setSubQ(2);
+      return false;
+    }
+
+    if (
+      !details.name ||
+      !details.dob ||
+      !details.gender ||
+      !details.phone ||
+      !details.state ||
+      !details.city
+    ) {
       setStep(3);
+      setSubQ(0);
+      return false;
+    }
+
+    return true;
+  };
+
+  const submitApplication = () => {
+    if (!validateApplication()) {
+      return;
+    }
+
+    if (fileError) {
+      setStep(4);
       setSubQ(0);
       return;
     }
@@ -254,12 +311,14 @@ export default function Application({ navigate }: ApplicationProps) {
     const form = submissionFormRef.current;
 
     if (!form) {
-      setFileError("The application form could not be submitted. Please try again.");
+      setFileError(
+        "The application form could not be submitted. Please try again.",
+      );
       return;
     }
 
     setIsSubmitting(true);
-    form.submit();
+    form.requestSubmit();
   };
 
   const set = (key: string, val: string | number) => {
@@ -1046,8 +1105,8 @@ export default function Application({ navigate }: ApplicationProps) {
           <p className="text-[13px] text-amber-700">
             By submitting this application, I consent to Dandurgu Air Travel
             &amp; Tours Ltd collecting and processing my personal information
-            to manage my Umrah application, communicate with me, and facilitate
-            the requested travel services. My information may be shared with
+            to process my application, communicate with me, and facilitate the
+            requested travel services. My information may be shared with
             relevant service providers where necessary, in accordance with
             Dandurgu’s Privacy Policy.
           </p>
@@ -1120,6 +1179,14 @@ export default function Application({ navigate }: ApplicationProps) {
           name="consent"
           value="Applicant consented to Dandurgu's Privacy Policy and processing of personal information for the requested travel services."
         />
+        <input
+          type="text"
+          name="_honey"
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          aria-hidden="true"
+        />
 
         <input type="hidden" name="nationality" value={answers.nigerian === "yes" ? "Nigerian National" : answers.nigerian === "no" ? "Non-Nigerian" : ""} />
         <input type="hidden" name="passport_status" value={answers.passport === "yes" ? "Active international passport" : answers.passport === "no" ? "No passport" : ""} />
@@ -1156,6 +1223,9 @@ export default function Application({ navigate }: ApplicationProps) {
           accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
           onChange={handlePassportFileChange}
         />
+        <button type="submit" tabIndex={-1} aria-hidden="true">
+          Submit
+        </button>
       </form>
 
       <div className="min-h-screen bg-white">
@@ -1294,5 +1364,6 @@ export default function Application({ navigate }: ApplicationProps) {
         )}
       </div>
     </div>
+    </>
   );
 }
