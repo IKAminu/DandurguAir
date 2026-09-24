@@ -54,7 +54,7 @@ export default function PrivacyPolicy({ navigate }: { navigate: (page: Page) => 
             This Privacy Policy for <strong>Dandurgu Air Travel and Tours Ltd</strong> ("we", "us", or "our") describes how and why we may access, collect, store, use, and share ("process") your personal information when you use our services ("Services"), including when you:
           </p>
           <ul className="list-disc pl-6 space-y-2 text-[15px] leading-7 text-[var(--color-text)] mb-5">
-            <li>Visit our website at <strong>dandurgu.cc.cd</strong> or any other website of ours that links to this Privacy Policy.</li>
+            <li>Visit our website at <strong>dandurgu.l.cd</strong> or any other website of ours that links to this Privacy Policy.</li>
             <li>Submit an enquiry, application, booking, or other request through our website.</li>
             <li>Contact us by telephone, WhatsApp, email, social media, or other communication channels.</li>
             <li>Purchase or enquire about our travel, pilgrimage, flight, accommodation, tour, or related services.</li>
