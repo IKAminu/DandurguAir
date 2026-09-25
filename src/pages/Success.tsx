@@ -1,11 +1,4 @@
-import { useEffect } from "react";
 import logo from "../public/images/logo/logo.png";
-
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
-}
 
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
@@ -14,47 +7,6 @@ interface SuccessProps {
 }
 
 export default function Success({ navigate }: SuccessProps) {
-  useEffect(() => {
-    const leadTrackedKey = "dandurgu_application_lead_tracked";
-
-    // The success page is reached after FormSubmit accepts the application.
-    // Track Meta's standard Lead event once per browser session.
-    if (sessionStorage.getItem(leadTrackedKey)) {
-      return;
-    }
-
-    const trackLead = () => {
-      if (typeof window.fbq !== "function") {
-        return false;
-      }
-
-      window.fbq("track", "Lead");
-      sessionStorage.setItem(leadTrackedKey, "true");
-      return true;
-    };
-
-    // The Meta Pixel base code is loaded asynchronously. Try immediately,
-    // then retry briefly if fbq is not ready yet.
-    if (trackLead()) {
-      return;
-    }
-
-    const retry = window.setInterval(() => {
-      if (trackLead()) {
-        window.clearInterval(retry);
-      }
-    }, 250);
-
-    const timeout = window.setTimeout(() => {
-      window.clearInterval(retry);
-    }, 5000);
-
-    return () => {
-      window.clearInterval(retry);
-      window.clearTimeout(timeout);
-    };
-  }, []);
-
   const go = (page: Page) => {
     navigate(page);
     window.scrollTo(0, 0);
