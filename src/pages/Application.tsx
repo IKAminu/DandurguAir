@@ -289,7 +289,7 @@ export default function Application({ navigate }: ApplicationProps) {
     return true;
   };
 
-  const submitApplication = async () => {
+  const submitApplication = () => {
     if (!validateApplication()) {
       return;
     }
@@ -309,68 +309,14 @@ export default function Application({ navigate }: ApplicationProps) {
       return;
     }
 
+    // Use the native multipart form submission. FormSubmit documents file
+    // uploads on the normal endpoint with multipart/form-data. This avoids
+    // relying on the AJAX endpoint to transport the attachment and avoids
+    // waiting on an AJAX response that can arrive after FormSubmit has already
+    // accepted the submission.
     setIsSubmitting(true);
     setFileError("");
-
-    try {
-      const formData = new FormData(form);
-
-      // Keep React's validated file as the source of truth for the upload.
-      // Explicitly set it on the multipart payload instead of relying only on
-      // FormData's serialization of the hidden file input.
-      if (passportFile) {
-        formData.set("passport", passportFile, passportFile.name);
-      }
-
-      const submittedPassport = formData.get("passport");
-
-      if (
-        passportFile &&
-        (!(submittedPassport instanceof File) ||
-          submittedPassport.size !== passportFile.size ||
-          submittedPassport.name !== passportFile.name)
-      ) {
-        throw new Error("The passport file could not be attached to the submission.");
-      }
-
-      const response = await fetch(
-        "https://formsubmit.co/ajax/dandurguairtravels@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-          },
-          body: formData,
-        },
-      );
-
-      const contentType = response.headers.get("content-type") || "";
-
-      if (!contentType.includes("application/json")) {
-        throw new Error("FormSubmit returned a non-JSON response.");
-      }
-
-      const result = await response.json();
-      const succeeded =
-        response.ok &&
-        (result.success === true || result.success === "true");
-
-      if (!succeeded) {
-        throw new Error(
-          typeof result.message === "string"
-            ? result.message
-            : "FormSubmit rejected the application.",
-        );
-      }
-
-      go("success");
-    } catch (error) {
-      console.error("Application submission failed:", error);
-      setFileError(
-        "Your application could not be submitted. Please complete the CAPTCHA if prompted and try again.",
-      );
-      setIsSubmitting(false);
-    }
+    form.requestSubmit();
   };
 
   const set = (key: string, val: string | number) => {
@@ -1200,7 +1146,7 @@ export default function Application({ navigate }: ApplicationProps) {
     <>
       <form
         ref={submissionFormRef}
-        action="https://formsubmit.co/ajax/dandurguairtravels@gmail.com"
+        action="https://formsubmit.co/dandurguairtravels@gmail.com"
         method="POST"
         encType="multipart/form-data"
         className="sr-only"
@@ -1215,6 +1161,11 @@ export default function Application({ navigate }: ApplicationProps) {
           }
         />
         <input type="hidden" name="_template" value="table" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://dandurgu.l.cd/success"
+        />
         <input
           type="hidden"
           name="_url"
