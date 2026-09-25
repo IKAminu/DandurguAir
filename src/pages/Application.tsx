@@ -197,8 +197,7 @@ export default function Application({ navigate }: ApplicationProps) {
       return;
     }
 
-    const allowedTypes = [
-      "application/pdf",
+    const allowedTypes = [      "application/pdf",
       "image/jpeg",
       "image/png",
     ];
@@ -309,6 +308,13 @@ export default function Application({ navigate }: ApplicationProps) {
       return;
     }
 
+    // A validated application is our Lead conversion. Track it immediately
+    // before handing the form to FormSubmit, so tracking is independent of
+    // CAPTCHA/redirect behavior and each valid submission attempt counts.
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "Lead");
+    }
+
     // Use the native multipart form submission. FormSubmit documents file
     // uploads on the normal endpoint with multipart/form-data. This avoids
     // relying on the AJAX endpoint to transport the attachment and avoids
@@ -397,8 +403,7 @@ export default function Application({ navigate }: ApplicationProps) {
         {[
           "THIS MONTH",
           "IN 1–3 MONTHS",
-          "WITHIN 6 MONTHS",
-          "JUST BROWSING",
+          "WITHIN 6 MONTHS",          "JUST BROWSING",
         ].map((opt) => (
           <OptionButton
             key={opt}
@@ -597,8 +602,7 @@ export default function Application({ navigate }: ApplicationProps) {
         </div>
       );
 
-    return (
-      <div className="animate-in fade-in duration-300">
+    return (      <div className="animate-in fade-in duration-300">
         <p
           className="text-[11px] font-semibold tracking-widest text-[var(--color-brand-blue)] uppercase mb-2"
           style={{ fontFamily: "var(--font-display)" }}
@@ -797,8 +801,7 @@ export default function Application({ navigate }: ApplicationProps) {
                 )}
 
                 {fileError && (
-                  <p className="text-[12.5px] text-red-600 mt-2">
-                    {fileError}
+                  <p className="text-[12.5px] text-red-600 mt-2">                    {fileError}
                   </p>
                 )}
               </>
@@ -997,8 +1000,7 @@ export default function Application({ navigate }: ApplicationProps) {
       },
       {
         title: "DOCUMENTS",
-        items: [
-          { label: "Passport Expiry", val: details.passportExpiry || "—" },
+        items: [          { label: "Passport Expiry", val: details.passportExpiry || "—" },
           { label: "Place of Issue", val: details.passportIssue || "—" },
           {
             label: "Passport Copy",
@@ -1197,8 +1199,7 @@ export default function Application({ navigate }: ApplicationProps) {
         <input type="hidden" name="date_of_birth" value={details.dob} />
         <input type="hidden" name="gender" value={details.gender} />
         <input type="hidden" name="phone_whatsapp" value={details.phone} />
-        <input type="hidden" name="email" value={details.email} />
-        <input type="hidden" name="state" value={details.state} />
+        <input type="hidden" name="email" value={details.email} />        <input type="hidden" name="state" value={details.state} />
         <input type="hidden" name="city" value={details.city} />
 
         <input type="hidden" name="departure" value={details.departure} />
