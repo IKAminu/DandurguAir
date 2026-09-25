@@ -1,4 +1,11 @@
+import { useEffect } from "react";
 import logo from "../public/images/logo/logo.png";
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
 
 type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
 
@@ -7,6 +14,23 @@ interface SuccessProps {
 }
 
 export default function Success({ navigate }: SuccessProps) {
+  useEffect(() => {
+    const leadTrackedKey = "dandurgu_application_lead_tracked";
+
+    // The success page is only reached after FormSubmit accepts the application.
+    // Track the conversion once per browser session to prevent refreshes from
+    // creating duplicate Lead events.
+    if (sessionStorage.getItem(leadTrackedKey)) {
+      return;
+    }
+
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "Lead", {
+        content_name: "Umrah Application",
+      });
+      sessionStorage.setItem(leadTrackedKey, "true");
+    }
+  }, []);
   const go = (page: Page) => {
     navigate(page);
     window.scrollTo(0, 0);
