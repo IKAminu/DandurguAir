@@ -1,41 +1,60 @@
-# figma-make-app
+# Dandurgu Air Travel & Tours
 
-React + Vite + Tailwind CSS project running inside Figma Make.
+This repository contains the official Dandurgu Air Travel & Tours website.
 
-## Development Server
+The site is a React + Vite + Tailwind CSS application deployed to GitHub Pages. The public application includes the main company website, the travel application flow, and the application success page.
 
-A Vite development server is **already running** on `$PORT` (default 8443). You don't need to start it manually.
+## Development
 
-- Preview URL: The user can access the running app through the preview panel
-- Hot reload: Changes to source files are reflected immediately
+Install dependencies with:
 
-## Project Structure
+```bash
+pnpm install
+```
 
-This is the canonical project structure. Start with task-relevant files below. Only follow imports or inspect other files when required, when a documented path is missing, or when the repository contradicts this guide.
+Run the local development server with:
 
-- `src/main.tsx` - React entrypoint; imports `src/index.css` and mounts `src/App.tsx` into the `#root` element
-- `src/App.tsx` - Primary application component and the usual starting point for UI work
-- `src/index.css` - Global CSS entrypoint and Tailwind CSS v4 import
-- `index.html` - Vite HTML shell containing the `#root` element and loading `src/main.tsx`
-- `package.json` - Project dependencies and the Vite build, development, preview, and formatting scripts
-- `vite.config.ts` - Vite configuration with React, Tailwind CSS v4, and Figma Make plugins plus the `@` alias for `src`
-- `.mise.toml` - Toolchain versions for Node.js and pnpm
+```bash
+pnpm dev
+```
 
-## Dependencies
+Create a production build with:
 
-- Runtime: React 19 and React DOM 19
-- Styling: Tailwind CSS v4 with the `@tailwindcss/vite` plugin
-- Build tooling: Vite 8, TypeScript 5.7, and `@vitejs/plugin-react`
-- Formatting: oxfmt
+```bash
+pnpm build
+```
 
-## Styling
+Preview the production build with:
 
-This project uses **Tailwind CSS v4** through the `@tailwindcss/vite` plugin configured in `vite.config.ts`. `src/index.css` imports Tailwind with `@import 'tailwindcss';`. Use Tailwind utility classes directly in JSX and put global CSS or Tailwind v4 theme customization in `src/index.css`. This scaffold does not need a Tailwind config file or PostCSS config.
+```bash
+pnpm preview
+```
 
-`src/main.tsx` imports `src/index.css`, so global font wiring belongs in `src/index.css`. Keep CSS `@import` statements first, then add any `@font-face` rules and font-family defaults there.
+## Project structure
+
+- `src/main.tsx` - React entrypoint
+- `src/App.tsx` - Main application shell and routing
+- `src/index.css` - Global styles and Tailwind CSS v4
+- `src/pages/` - Website pages and application flow
+- `public/` - Static assets such as logos and images
+- `index.html` - HTML document shell and Meta Pixel initialization
+- `package.json` - Project dependencies and scripts
+- `vite.config.ts` - Vite configuration
+- `.github/workflows/deploy.yml` - GitHub Pages deployment
+- `.github/workflows/update-accreditations.yml` - Accreditation data update workflow
+
+## Website and conversion flow
+
+The application form submits directly to FormSubmit using a multipart POST so passport and other uploaded files are preserved.
+
+The Meta Pixel is initialized in `index.html`. A validated application submission fires the Meta `Lead` event immediately before the native form submission. Lead tracking should remain independent of the FormSubmit redirect and CAPTCHA flow.
+
+Do not replace the native multipart submission with a JSON or AJAX submission without verifying that file attachments still arrive correctly.
 
 ## Code quality
 
-- Use double quotes for strings containing apostrophes (`"We're here to help"`), or escape them in single-quoted strings. An unescaped apostrophe in a single-quoted string breaks the build.
-- Ensure JSX tags are closed and braces are balanced.
-- Export components as default exports.
+- Use double quotes for strings containing apostrophes, or escape apostrophes when using single-quoted strings.
+- Keep JSX tags closed and braces balanced.
+- Preserve the existing application flow when making UI changes.
+- Do not remove or alter the Meta Pixel ID, FormSubmit endpoint, or conversion event without an explicit requirement.
+- Keep public-facing copy specific to Dandurgu Air Travel & Tours.
