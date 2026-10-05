@@ -103,12 +103,19 @@ export default function About({ navigate }: AboutProps) {
             TRUSTED. REGISTERED. RECOGNISED.
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {["NANTA 50th AGM, Icons Award", "NANTA Northern Zone, Certificate of recognition, 2019", "NANTA Northern Zone, Certificate of recognition, 2021", "LEGACY Agency Of the North, 2022"].map((label) => (
+            {[
+              { year: "2026", title: "NANTA 50th AGM", detail: "Icons Award" },
+              { year: "2019", title: "NANTA Northern Zone", detail: "Certificate of recognition" },
+              { year: "2021", title: "NANTA Northern Zone", detail: "Certificate of recognition" },
+              { year: "2022", title: "LEGACY Agency Of the North", detail: "Recognition" },
+            ].map((item) => (
               <div
-                key={label}
-                className="h-20 rounded-xl border-2 border-dashed border-[var(--color-border)] flex items-center justify-center bg-white"
+                key={`${item.year}-${item.title}`}
+                className="h-28 rounded-xl border-2 border-solid border-[var(--color-border)] flex flex-col items-start justify-center bg-white px-4 text-left"
               >
-                <span className="text-[11px] text-[var(--color-muted)] text-center px-2 leading-tight">{label}</span>
+                <span className="text-[11px] font-semibold text-green-600 mb-2">{item.year}</span>
+                <span className="text-[11px] font-bold text-black leading-tight">{item.title}</span>
+                <span className="text-[10px] text-[var(--color-muted)] leading-tight mt-1">{item.detail}</span>
               </div>
             ))}
           </div>
