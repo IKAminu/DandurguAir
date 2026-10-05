@@ -103,7 +103,7 @@ export default function About({ navigate }: AboutProps) {
             TRUSTED. REGISTERED. RECOGNISED.
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {["ACCREDITATION 01 — REPLACE", "ACCREDITATION 02 — REPLACE", "AWARD 01 — REPLACE", "AWARD 02 — REPLACE"].map((label) => (
+            {["NANTA 50th AGM, Icons Award", "NANTA Northern Zone, Certificate of recognition, 2019", "NANTA Northern Zone, Certificate of recognition, 2021", "LEGACY Agency Of the North, 2022"].map((label) => (
               <div
                 key={label}
                 className="h-20 rounded-xl border-2 border-dashed border-[var(--color-border)] flex items-center justify-center bg-white"
