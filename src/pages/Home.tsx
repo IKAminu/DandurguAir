@@ -407,8 +407,12 @@ export default function Home({ navigate }: HomeProps) {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="p-7 rounded-xl bg-[var(--color-off-white)] border border-[var(--color-border)]">
+            {[
+              { text: "Dandurgu is fast and affordable, great customer service.", name: "Batulu Umar", city: "Kano" },
+              { text: "I was treated like a Long lost brother, the whole way.", name: "Aliyu Mansur", city: "Jigawa" },
+              { text: "Great service, peaceful trip, was happy with everything.", name: "Muhsin Muhsin", city: "Kano" },
+            ].map((testimonial) => (
+              <div key={testimonial.name} className="p-7 rounded-xl bg-[var(--color-off-white)] border border-[var(--color-border)]">
                 <div className="flex gap-1 mb-5">
                   {[...Array(5)].map((_, j) => (
                     <svg key={j} className="w-4 h-4 text-[var(--color-brand-orange)]" fill="currentColor" viewBox="0 0 20 20">
@@ -417,17 +421,15 @@ export default function Home({ navigate }: HomeProps) {
                   ))}
                 </div>
                 <p className="text-[var(--color-muted)] text-[13.5px] leading-relaxed italic mb-6">
-                  [TESTIMONIAL TEXT — REPLACE WITH REAL CUSTOMER TESTIMONIAL]
+                  {testimonial.text}
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[var(--color-border)] flex items-center justify-center text-[var(--color-muted)] text-[11px]">
-                    Photo
-                  </div>
+                  <div className="w-10 h-10 rounded-full bg-[var(--color-border)]" aria-hidden="true" />
                   <div>
                     <div className="font-semibold text-[13.5px] text-[var(--color-dark)]" style={{ fontFamily: "var(--font-display)" }}>
-                      [CUSTOMER NAME — REPLACE]
+                      {testimonial.name}
                     </div>
-                    <div className="text-[12px] text-[var(--color-muted)]">[CITY — REPLACE]</div>
+                    <div className="text-[12px] text-[var(--color-muted)]">{testimonial.city}</div>
                   </div>
                 </div>
               </div>
