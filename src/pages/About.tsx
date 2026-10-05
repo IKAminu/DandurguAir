@@ -43,10 +43,12 @@ export default function About({ navigate }: AboutProps) {
               We are accredited and registered with the relevant industry and regulatory bodies, and have been recognised through industry awards for the quality of our service.
             </p>
           </div>
-          <div className="rounded-2xl bg-[var(--color-light-grey)] border border-[var(--color-border)] aspect-square flex items-center justify-center">
-            <p className="text-[12px] text-[var(--color-muted)] italic text-center px-8">
-              [IMAGE PLACEHOLDER — REPLACE WITH APPROVED DANDURGU TEAM OR OFFICE IMAGE]
-            </p>
+          <div className="rounded-2xl overflow-hidden border border-[var(--color-border)] aspect-square">
+            <img
+              src="https://images.unsplash.com/photo-1713942217911-df973da200fd?auto=format&fit=crop&w=1200&q=85"
+              alt="Pilgrims performing Umrah around the Kaaba at Masjid al-Haram in Makkah"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
