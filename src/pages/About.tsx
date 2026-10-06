@@ -109,7 +109,7 @@ export default function About({ navigate }: AboutProps) {
               { year: "2026", title: "NANTA 50th AGM", detail: "Icons Award" },
               { year: "2019", title: "NANTA Northern Zone", detail: "Certificate of recognition" },
               { year: "2021", title: "NANTA Northern Zone", detail: "Certificate of recognition" },
-              { year: "2022", title: "LEGACY Agency Of the North", detail: "Recognition" },
+              { year: "2023", title: "AHUON", detail: "Icon of Service Aware" },
             ].map((item) => (
               <div
                 key={`${item.year}-${item.title}`}
