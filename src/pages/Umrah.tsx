@@ -171,6 +171,10 @@ export default function Umrah({ navigate }: UmrahProps) {
             src="https://images.unsplash.com/photo-1724191078796-8a997b989f43?w=1600&h=900&fit=crop&auto=format"
             alt="Al Masjid an Nabawi mosque in Medina with green dome and minarets"
             className="w-full h-full object-cover opacity-25"
+            width={1600}
+            height={900}
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand-blue-deeper)]/60 via-transparent to-[var(--color-brand-blue-deeper)]/80" />
         </div>
