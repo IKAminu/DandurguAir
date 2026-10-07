@@ -105,6 +105,10 @@ export default function Services({ navigate }: ServicesProps) {
                   src={svc.image}
                   alt={`${svc.title} service`}
                   className={`w-full h-full object-cover ${svc.title === "TOURS & TRAVEL" ? "object-bottom" : ""}`}
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  decoding="async"
                 />             </div>
             </div>
           ))}
