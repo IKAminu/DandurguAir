@@ -48,6 +48,10 @@ export default function About({ navigate }: AboutProps) {
               src="https://images.unsplash.com/photo-1713942217911-df973da200fd?auto=format&fit=crop&w=1200&q=85"
               alt="Pilgrims performing Umrah around the Kaaba at Masjid al-Haram in Makkah"
               className="w-full h-full object-cover"
+              width={1200}
+              height={1200}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
