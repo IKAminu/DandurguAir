@@ -97,6 +97,8 @@ export default function Nav({ current, navigate }: NavProps) {
           <button
             onClick={() => setOpen(!open)}
             className="p-2 text-[var(--color-dark)]"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
           >
             {open ? (
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
