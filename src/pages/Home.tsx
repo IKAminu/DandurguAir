@@ -61,7 +61,11 @@ export default function Home({ navigate }: HomeProps) {
           <img
             src={PilgrimHeroImage}
             alt="Grand mosque illuminated at night, reflected in still water"
-            className="w-full h-full object-cover opacity-30"\n            width={1600}\n            height={900}\n            fetchPriority="high"\n            decoding="async"
+            className="w-full h-full object-cover opacity-30"
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-brand-blue-deeper)]/80 via-[var(--color-brand-blue-deeper)]/40 to-transparent" />
         </div>
@@ -360,7 +364,11 @@ export default function Home({ navigate }: HomeProps) {
           <img
             src="https://images.unsplash.com/photo-1724191078796-8a997b989f43?w=1400&h=700&fit=crop&auto=format"
             alt="Al Masjid an Nabawi mosque minarets in Medina"
-            className="w-full h-full object-cover opacity-20"\n            width={1400}\n            height={700}\n            loading="lazy"\n            decoding="async"
+            className="w-full h-full object-cover opacity-20"
+            width={1400}
+            height={700}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-5 md:px-8 text-center">
