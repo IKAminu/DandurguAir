@@ -636,6 +636,7 @@ export default function Application({ navigate }: ApplicationProps) {
               <option value="">Select departure city</option>
               <option value="Kano">Kano</option>
               <option value="Abuja">Abuja</option>
+              <option value="Lagos">Lagos</option>
               <option value="Custom">Custom - Let's arrange the details</option>
             </select>
           </div>
