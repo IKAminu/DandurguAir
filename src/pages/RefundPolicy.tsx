@@ -67,8 +67,8 @@ export default function RefundPolicy({ navigate }: { navigate: (page: Page) => v
 
         <Section id="supplier-terms" title="2. THIRD-PARTY PROVIDERS AND SUPPLIER RULES">
           <p>Many travel arrangements depend on independent suppliers. Airlines, hotels, visa processors, pilgrimage authorities, transport providers, and other suppliers may set their own deadlines, cancellation penalties, refund conditions, and documentation requirements.</p>
-          <p>Where a supplier's rules apply to your booking, those rules form part of the conditions communicated for that service. Dandurgu will apply the relevant supplier rules when calculating a refund and will not promise a supplier refund that the supplier has not approved or made available.</p>
-          <p>We will distinguish, where reasonably possible, between amounts retained or charged by a supplier and any separate Dandurgu service or administration fee. A supplier's refusal or delay in refunding money may affect timing or the amount available, but does not remove any rights the customer has against Dandurgu under applicable law.</p>
+          <p>Refund eligibility and restrictions are determined by the applicable supplier rules, booking terms, and law. Customers are responsible for reviewing the terms made available for a service before confirming a booking or making payment. Dandurgu is not required to separately contact each customer or provide an individual advance explanation of whether a particular service is refundable, except where applicable law or a written agreement requires it.</p>
+          <p>Dandurgu will apply the relevant supplier rules when assessing a refund and does not guarantee that a supplier will approve or pay one. Supplier charges and Dandurgu service or administration fees are distinct. A supplier's refusal or delay may affect the amount or timing of a refund, but does not remove any rights the customer has against Dandurgu under applicable law.</p>
         </Section>
 
         <Section id="principles" title="3. GENERAL REFUND PRINCIPLES">
@@ -88,7 +88,7 @@ export default function RefundPolicy({ navigate }: { navigate: (page: Page) => v
         <Section id="customer-cancellation" title="4. CUSTOMER-INITIATED CANCELLATIONS">
           <p>If you decide not to travel or no longer want a service after paying, contact Dandurgu in writing as soon as possible. Your decision to change your mind does not automatically entitle you to a full refund, but it also does not automatically mean that Dandurgu may keep the entire amount paid.</p>
           <p>We will review the booking and calculate the amount, if any, refundable after accounting for applicable supplier penalties, non-recoverable third-party charges, services already provided, and any disclosed and lawful Dandurgu fee. The nearer the cancellation is to departure or service delivery, the more likely it is that supplier costs or restrictions will limit the available refund.</p>
-          <p>Any cancellation schedule or package-specific cancellation terms supplied to you before payment will apply to the extent they are consistent with applicable law. Where no specific schedule was provided, the refund will be assessed using the applicable supplier terms, actual commitments and costs, work already performed, and the principles in this Policy.</p>
+          <p>Any cancellation schedule or package-specific cancellation terms validly applicable to the booking will apply to the extent they are consistent with applicable law. Customers are responsible for reviewing the booking terms and supplier conditions made available to them before payment. Where no specific schedule applies, the refund will be assessed using the applicable supplier terms, actual commitments and costs, work already performed, and the principles in this Policy.</p>
           <p>Failure to attend, late arrival, failure to provide required documents, or abandonment of a trip may be treated as a no-show or customer-caused cancellation under the relevant supplier rules. Such cases may result in limited or no supplier refund, subject to applicable law and the specific booking terms.</p>
         </Section>
 
@@ -107,7 +107,7 @@ export default function RefundPolicy({ navigate }: { navigate: (page: Page) => v
         <Section id="pilgrimage" title="7. HAJJ AND UMRAH BOOKINGS">
           <p>Hajj and Umrah packages may combine several separate services, including flights, accommodation, ground transport, visa processing, permits, pilgrimage arrangements, and services supplied in Saudi Arabia or by other providers. Each component may have different cancellation deadlines and refund rules.</p>
           <p>Once a booking is made, funds may be committed to hotels, airlines, ground operators, visa or permit processing, pilgrimage platforms, or other suppliers. Amounts that those providers lawfully retain or cannot return may be deducted from the refund, together with applicable disclosed and earned Dandurgu charges.</p>
-          <p>Government or pilgrimage authority deadlines, quota limits, permit rules, visa processing, and changes to official requirements may affect whether a service can be cancelled, transferred, or refunded. Dandurgu will explain the known consequences for the relevant booking and will not guarantee a refund or permit outcome controlled by another authority.</p>
+          <p>Government or pilgrimage authority deadlines, quota limits, permit rules, visa processing, and changes to official requirements may affect whether a service can be cancelled, transferred, or refunded. Customers are responsible for reviewing the applicable package terms and official or supplier conditions made available to them. Dandurgu does not guarantee a refund or permit outcome controlled by another authority and is not required to provide an individual advance explanation of refundability unless applicable law or a written agreement requires it.</p>
           <p>Where a package-specific cancellation schedule or supplier terms are provided before payment, they should be reviewed carefully before the customer pays. If there is a conflict, mandatory law takes priority, followed by the applicable confirmed booking terms and supplier rules to the extent legally enforceable.</p>
         </Section>
 
@@ -131,7 +131,7 @@ export default function RefundPolicy({ navigate }: { navigate: (page: Page) => v
 
         <Section id="exceptional-events" title="11. EVENTS BEYOND OUR CONTROL">
           <p>Events such as severe weather, natural disasters, public-health emergencies, war, civil unrest, border closures, government restrictions, airline disruption, or changes to official pilgrimage requirements may affect travel services.</p>
-          <p>In these circumstances, refund options may be determined by the relevant supplier, authority, insurance policy, or mandatory law. Dandurgu will communicate known options and provide reasonable assistance within the scope of the service agreed. We cannot promise a supplier refund, compensation, or alternative that is not available.</p>
+          <p>In these circumstances, refund options may be determined by the relevant supplier, authority, insurance policy, or mandatory law. Dandurgu may provide reasonable assistance within the scope of the service agreed, but cannot promise a supplier refund, compensation, or alternative that is not available. Any assistance or communication required by applicable law or an express written agreement will still be provided.</p>
           <p>This section does not remove any non-excludable rights or obligations under applicable law.</p>
         </Section>
 
@@ -166,7 +166,8 @@ export default function RefundPolicy({ navigate }: { navigate: (page: Page) => v
 
         <Section id="acceptance" title="16. DISCLOSURE, ACCEPTANCE, AND LEGAL RIGHTS">
           <p>Customers should review this Policy and any booking-specific cancellation schedule before making payment. Where a specific cancellation fee, deposit condition, or supplier restriction applies, Dandurgu should disclose it before payment or confirmation, as appropriate.</p>
-          <p>We may update this Policy from time to time and will update the date shown above. The version and booking terms applicable to a transaction will be considered alongside the circumstances of that transaction and applicable law. A policy update does not remove rights already protected by mandatory law.</p>
+          <p>We may revise, replace, or update this Policy at any time without individually notifying customers or obtaining their separate acknowledgement, unless applicable law requires otherwise. When we make a change, we will update the “Last updated” date displayed on this page. Customers are responsible for checking the current version when using our website or making a new booking.</p>
+          <p>Unless applicable law or a written agreement provides otherwise, an update will apply prospectively and will not by itself change the terms or remove rights attached to a booking already confirmed before the update. Nothing in this Policy removes any right or duty that cannot lawfully be excluded or changed.</p>
           <p>This Policy is intended to explain our process and does not constitute legal advice. Nothing in it is intended to waive statutory consumer protections, aviation rights, or any other right or remedy that cannot lawfully be waived or restricted.</p>
         </Section>
 
