@@ -41,7 +41,7 @@ jobs:
 
       - name: Prepare route entry points
         run: |
-          for route in umrah services about faq contact apply privacy terms; do
+          for route in umrah services about faq contact apply privacy terms refund-policy; do
             mkdir -p "./dist/$route"
             cp ./dist/index.html "./dist/$route/index.html"
           done
