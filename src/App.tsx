@@ -11,6 +11,7 @@ import Application from "./pages/Application";
 import Success from "./pages/Success";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import RefundPolicy from "./pages/RefundPolicy";
 
 export type Page =
   | "home"
@@ -22,7 +23,8 @@ export type Page =
   | "apply"
   | "success"
   | "privacy"
-  | "terms";
+  | "terms"
+  | "refund";
 
 const noLayout: Page[] = ["success"];
 const pathForPage: Record<Page, string> = {
@@ -36,6 +38,7 @@ const pathForPage: Record<Page, string> = {
   success: "/success",
   privacy: "/privacy",
   terms: "/terms",
+  refund: "/refund-policy",
 };
 
 const pageForPath: Record<string, Page> = {
@@ -52,6 +55,7 @@ const pageForPath: Record<string, Page> = {
   "/success": "success",
   "/privacy": "privacy",
   "/terms": "terms",
+  "/refund-policy": "refund",
 };
 
 function getPageFromLocation(): Page {
@@ -97,6 +101,7 @@ export default function App() {
         {page === "success" && <Success navigate={navigate} />}
         {page === "privacy" && <PrivacyPolicy navigate={navigate} />}
         {page === "terms" && <Terms navigate={navigate} />}
+        {page === "refund" && <RefundPolicy navigate={navigate} />}
       </main>
       {showLayout && <Footer navigate={navigate} />}
     </div>

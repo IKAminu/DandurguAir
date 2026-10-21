@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "../public/images/logo/logo.png";
 
-type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success";
+type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success" | "privacy" | "terms" | "refund";
 
 interface NavProps {
   current: Page;

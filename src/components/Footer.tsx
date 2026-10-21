@@ -1,7 +1,7 @@
 import logo from "../public/images/logo/logo.png";
 
 
-type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success" | "privacy" | "terms";
+type Page = "home" | "umrah" | "services" | "about" | "faq" | "contact" | "apply" | "success" | "privacy" | "terms" | "refund";
 
 interface FooterProps {
   navigate: (page: Page) => void;
@@ -107,6 +107,7 @@ export default function Footer({ navigate }: FooterProps) {
           <div className="flex gap-5 text-[12.5px]">
             <button onClick={() => go("privacy")} className="text-white/40 hover:text-white/70 transition-colors">Privacy Policy</button>
             <button onClick={() => go("terms")} className="text-white/40 hover:text-white/70 transition-colors">Terms & Conditions</button>
+            <button onClick={() => go("refund")} className="text-white/40 hover:text-white/70 transition-colors">Refund Policy</button>
           </div>
         </div>
       </div>
